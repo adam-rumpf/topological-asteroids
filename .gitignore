@@ -1,3 +1,6 @@
 *.wav
 *.mp3
 *.png
+*.xcf
+_music/
+_plans/

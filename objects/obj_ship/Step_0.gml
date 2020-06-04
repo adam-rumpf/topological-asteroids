@@ -2,21 +2,11 @@
 
 // [Left] or [A] -- turn left
 if (keyboard_check(vk_left) || keyboard_check(ord("A")))
-{
-	if (mirrored == false)
-		image_angle += turn_speed;
-	else
-		image_angle -= turn_speed;
-}
+	image_angle += turn_speed;
 
 // [Right] or [D] -- turn right
 if (keyboard_check(vk_right) || keyboard_check(ord("D")))
-{
-	if (mirrored == false)
-		image_angle -= turn_speed;
-	else
-		image_angle += turn_speed;
-}
+	image_angle -= turn_speed;
 
 // [Up] or [W] -- thrust forward
 if (keyboard_check(vk_up) || keyboard_check(ord("W")))

@@ -1,6 +1,6 @@
 /// @func scr_spawn(obj, xx, yy, dir, spd)
 /// @desc Spawn an array of objects with the necessary symmetries applied and return array of instance IDs.
-/// @param {obj} object Object type to be spawned.
+/// @param {object} obj Object type to be spawned.
 /// @param {real} xx Horizontal coordinate of object relative to base cell (1 down, 1 right).
 /// @param {real} yy Vertical coordinate of object relative to base cell (1 down, 1 right).
 /// @param {real} dir Initial direction of object within the base room.
@@ -63,4 +63,5 @@ switch global.symmetry
 
 //### Note: Set instance.turn_speed *= -spd and set instance.image_xscale = -instance.image_xscale to mirror an object.
 
+// Return array of instance IDs
 return ids;

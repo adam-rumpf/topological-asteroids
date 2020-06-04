@@ -8,21 +8,21 @@ This version of the game can be played on a variety of other topological surface
 
 ## Game Credits
 
-Topological Asteroids
-Copyright (c) 2020 Adam Rumpf
-adam-rumpf.github.io
+Topological Asteroids  
+Copyright (c) 2020 Adam Rumpf  
+[adam-rumpf.github.io](https://adam-rumpf.github.io/)
 
-Made in GameMaker Studio 2
+Source code released under MIT License  
+[github.com/adam-rumpf/topological-asteroids](https://github.com/adam-rumpf/topological-asteroids)
+
+Made in GameMaker Studio 2  
 2017 YoYo Games
 
-Source code released under MIT License
-github.com/adam-rumpf/topological-asteroids
-
-Sound effects made in Bfxr
-www.bfxr.net
+Sound effects made in Bfxr  
+[bfxr.net](https://www.bfxr.net/)
 
 ## Music Credits
 
-"Voltaic" Kevin MacLeod (incompetech.com)
-Licensed under Creative Commons: By Attribution 3.0
-http://creativecommons.org/licenses/by/3.0/
+"Voltaic" Kevin MacLeod ([incompetech.com](https://incompetech.com/))  
+Licensed under Creative Commons: By Attribution 3.0  
+[http://creativecommons.org/licenses/by/3.0/](http://creativecommons.org/licenses/by/3.0/)

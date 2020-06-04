@@ -1,4 +1,4 @@
-/// @desc Set title screen options and text font.
+/// @desc Title screen controller initialization.
 
-//### Replace font later.
+// Set text font
 draw_set_font(fnt_arial);

@@ -1,5 +1,9 @@
 /// @desc Initialization code for game.
 
+// Defining global variables.
+global.cell_size = 640; // sice of unit cell (px)
+global.cell_num = 4; // number of cells in each dimension of the game room
+
 /*
 Set symmetry type. Type IDs include:
 	0 -- torus

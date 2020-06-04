@@ -61,6 +61,6 @@ switch global.symmetry
 		break;
 }
 
-//### Note: Set instance.mirrored = true and set instance.image_xscale = -instance.image_xscale to mirror an object.
+//### Note: Set instance.turn_speed *= -spd and set instance.image_xscale = -instance.image_xscale to mirror an object.
 
 return ids;

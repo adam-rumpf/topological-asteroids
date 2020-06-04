@@ -26,4 +26,6 @@ instance.direction = dir;
 instance.image_angle = dir;
 ids[1,1] = instance;
 
+//### Note: Set instance.mirrored = true and set instance.image_xscale = -instance.image_xscale to mirror an object.
+
 return ids;

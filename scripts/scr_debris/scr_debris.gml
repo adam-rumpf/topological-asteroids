@@ -13,7 +13,7 @@ dir = argument[2];
 // Main +
 for (var i = 0; i < 4; i++)
 {
-	var debris = instance_create_layer(xx, yy, "Instances", obj_debris);
+	var debris = instance_create_layer(xx, yy, "Lower_Effects", obj_debris);
 	debris.direction = dir + 90*i;
 	debris.speed = 0.05*room_speed;
 }
@@ -21,7 +21,7 @@ for (var i = 0; i < 4; i++)
 // Smaller X
 for (var i = 0; i < 4; i++)
 {
-	var debris = instance_create_layer(xx, yy, "Instances", obj_debris);
+	var debris = instance_create_layer(xx, yy, "Lower_Effects", obj_debris);
 	debris.direction = dir + 45 + 90*i;
 	debris.speed = 0.025*room_speed;
 }

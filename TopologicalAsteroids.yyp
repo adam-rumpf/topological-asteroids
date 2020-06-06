@@ -50,7 +50,7 @@
             "Key": "0b7d53c8-69f2-42af-85df-aa1da670a5f5",
             "Value": {
                 "id": "939be694-0616-489e-bf45-53c6e5168059",
-                "resourcePath": "objects\\obj_asteroid\\obj_asteroid.yy",
+                "resourcePath": "objects\\obj_asteroid_large\\obj_asteroid_large.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -60,6 +60,14 @@
                 "id": "1790e905-f55e-44ba-a799-303bcbced488",
                 "resourcePath": "scripts\\scr_debris\\scr_debris.yy",
                 "resourceType": "GMScript"
+            }
+        },
+        {
+            "Key": "10b5657d-f9be-4504-8c79-d72dcb679f19",
+            "Value": {
+                "id": "88c1fa48-d5b6-469a-8e7c-c396ea2bb6ca",
+                "resourcePath": "objects\\obj_warning_class\\obj_warning_class.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -100,6 +108,14 @@
                 "id": "6fb1b299-2697-4d4a-bf58-3a037e69b3ba",
                 "resourcePath": "rooms\\rm_torus\\rm_torus.yy",
                 "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "4125e63e-a070-4cea-b4d8-f17d90a1bab0",
+            "Value": {
+                "id": "8d5e0702-c545-464d-87eb-397394726d96",
+                "resourcePath": "objects\\obj_warning_large\\obj_warning_large.yy",
+                "resourceType": "GMObject"
             }
         },
         {
@@ -159,10 +175,26 @@
             }
         },
         {
+            "Key": "63eedaea-f6c6-4350-91eb-338ca6a293dd",
+            "Value": {
+                "id": "3de2c007-40c5-4ff7-a0f3-21b4d85c5fc5",
+                "resourcePath": "sprites\\spr_asteroid_large\\spr_asteroid_large.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "69cfe343-bca6-49c5-a05c-aeb6b8051e1e",
             "Value": {
                 "id": "bfda0593-88e9-44a6-996f-f950deb11b87",
                 "resourcePath": "views\\69cfe343-bca6-49c5-a05c-aeb6b8051e1e.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "6e5f68e1-280c-473b-b9e1-7eb5a06fa525",
+            "Value": {
+                "id": "30e5ee1b-e576-4093-b9ab-f41a29956d30",
+                "resourcePath": "views\\6e5f68e1-280c-473b-b9e1-7eb5a06fa525.yy",
                 "resourceType": "GMFolder"
             }
         },
@@ -187,6 +219,14 @@
             "Value": {
                 "id": "062de253-7b93-469c-b819-a2e4f1aca3ee",
                 "resourcePath": "objects\\obj_ship_parent\\obj_ship_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "83f2fcee-d323-4e2c-bd5b-328a2ddcf976",
+            "Value": {
+                "id": "69dba6a6-ef8c-4bfc-b6c7-9a682e84700f",
+                "resourcePath": "objects\\obj_asteroid_class\\obj_asteroid_class.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -343,6 +383,22 @@
             }
         },
         {
+            "Key": "ce374b54-1844-49b4-8f1d-35c07870c7e9",
+            "Value": {
+                "id": "519c1c96-1295-41d2-aeec-dfe654a16a4e",
+                "resourcePath": "objects\\obj_asteroid_parent\\obj_asteroid_parent.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "d19daf1f-e5e0-4389-b1a1-83620032c6d6",
+            "Value": {
+                "id": "1d1b33c7-d341-4c24-8ee5-6eb5a4979d20",
+                "resourcePath": "sprites\\spr_warning_large\\spr_warning_large.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "d33d45b0-0b68-4e27-9161-e5ee7b1fb603",
             "Value": {
                 "id": "f31d7921-e7d5-49fa-a6fa-d7715a7cb643",
@@ -363,6 +419,14 @@
             "Value": {
                 "id": "dfc537ce-71d0-4b21-a5f0-c4f0465d44ae",
                 "resourcePath": "views\\da6873f1-e580-4a73-a25c-d10e9d2bf16c.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "e40447e0-a97e-4af2-ac2b-38e716488fae",
+            "Value": {
+                "id": "a68ca5cc-6e18-4efb-8f13-2e0bd80c5a9e",
+                "resourcePath": "views\\e40447e0-a97e-4af2-ac2b-38e716488fae.yy",
                 "resourceType": "GMFolder"
             }
         },

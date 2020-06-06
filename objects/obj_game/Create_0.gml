@@ -1,8 +1,13 @@
 /// @desc Initialization code for game.
 
-// Defining global variables.
+// Set random seed
+//### Implement after testing is done.
+//randomize();
+
+// Define global variables
 global.cell_size = 640; // sice of unit cell (px)
 global.cell_num = 4; // number of cells in each dimension of the game room
+global.warning_time = 2; // time between warning and asteroid spawning (sec)
 
 /*
 Set symmetry type. Type IDs include:

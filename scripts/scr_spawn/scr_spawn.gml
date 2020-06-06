@@ -306,7 +306,5 @@ switch sym
 		break;
 }
 
-//### Note: Set instance.turn_speed *= -spd and set instance.image_xscale = -instance.image_xscale to mirror an object.
-
 // Return array of instance IDs
 return ids;

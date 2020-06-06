@@ -15,7 +15,12 @@ if (keyboard_check(vk_up) || keyboard_check(ord("W")))
 // [Space] press -- fire a bullet (accounting for fire delay)
 if (keyboard_check_pressed(vk_space) && can_shoot)
 {
-	var bullet = instance_create_layer(x, y, "Instances", obj_bullet);
+	var bullet, xx, yy;
+	
+	// Spawn bullet slightly in front of the ship to avoid self-collisions
+	xx = x + 0.8*sprite_height*cos(degtorad(image_angle));
+	yy = y - 0.8*sprite_height*sin(degtorad(image_angle));
+	bullet = instance_create_layer(xx, yy, "Instances", obj_bullet);
 	
 	// Bullet velocity is relative to ship velocity
 	bullet.direction = image_angle;

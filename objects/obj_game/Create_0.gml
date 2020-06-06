@@ -13,7 +13,7 @@ Set symmetry type. Type IDs include:
 	4 -- cylinder
 	5 -- Mobius strip
 */
-global.symmetry = 0;
+symmetry = 0;
 
 /*
 Set camera mode. Mode IDs include:

@@ -16,7 +16,7 @@ Source code released under MIT License
 [github.com/adam-rumpf/topological-asteroids](https://github.com/adam-rumpf/topological-asteroids)
 
 Made in GameMaker Studio 2  
-2017 YoYo Games
+2017 YoYo Games Ltd
 
 Sound effects made in Bfxr  
 [bfxr.net](https://www.bfxr.net/)

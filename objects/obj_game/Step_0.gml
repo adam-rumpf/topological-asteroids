@@ -4,3 +4,5 @@
 // Quit on [Esc] press.
 if (keyboard_check_pressed(vk_escape))
 	game_end();
+
+//### Have this object control the sounds, to prevent too many from playing at once.

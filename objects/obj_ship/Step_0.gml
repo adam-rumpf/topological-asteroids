@@ -18,8 +18,8 @@ if (keyboard_check_pressed(vk_space) && can_shoot)
 	var bullet, xx, yy;
 	
 	// Spawn bullet slightly in front of the ship to avoid self-collisions
-	xx = x + 0.8*sprite_height*cos(degtorad(image_angle));
-	yy = y - 0.8*sprite_height*sin(degtorad(image_angle));
+	xx = x + 0.8*sprite_width*cos(degtorad(image_angle));
+	yy = y - 0.8*sprite_width*sin(degtorad(image_angle));
 	bullet = instance_create_layer(xx, yy, "Instances", obj_bullet);
 	
 	// Bullet velocity is relative to ship velocity

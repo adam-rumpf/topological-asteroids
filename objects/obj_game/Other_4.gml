@@ -4,10 +4,16 @@
 switch room
 {
 	case rm_torus:
-		symmetry = 0;
+		global.symmetry = 0;
 		break;
 	case rm_klein:
-		symmetry = 1;
+		global.symmetry = 1;
+		break;
+	case rm_sphere:
+		global.symmetry = 2;
+		break;
+	case rm_rpp:
+		global.symmetry = 3;
 		break;
 }
 

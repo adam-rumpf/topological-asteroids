@@ -71,6 +71,22 @@
             }
         },
         {
+            "Key": "304ad4fc-09ad-4569-b4ac-64e2a280500a",
+            "Value": {
+                "id": "ef077e01-c392-40e4-bb53-b9450b49b31c",
+                "resourcePath": "rooms\\rm_rpp\\rm_rpp.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
+            "Key": "32943f33-7088-4866-b08d-66cb2e460265",
+            "Value": {
+                "id": "50ed07e0-196a-43f0-9c5a-662afdd6d316",
+                "resourcePath": "rooms\\rm_sphere\\rm_sphere.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "3433ff8f-ad50-4919-9ec8-34e8e8a3fb27",
             "Value": {
                 "id": "5b2b722c-c2a8-42de-9f44-f7b3c89021e4",

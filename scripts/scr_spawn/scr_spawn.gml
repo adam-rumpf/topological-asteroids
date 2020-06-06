@@ -38,8 +38,8 @@ switch sym
 				var instance, xxx, yyy;
 				
 				// Offset coordinates
-				xxx = xx + i*global.cell_size;
-				yyy = yy + j*global.cell_size;
+				xxx = xx + j*global.cell_size;
+				yyy = yy + i*global.cell_size;
 				
 				// Create instance and store ID
 				instance = instance_create_layer(xxx, yyy, "Instances", obj);
@@ -56,6 +56,44 @@ switch sym
 	
 	// Klein bottle
 	case 1:
+		for (var i = 0; i < global.cell_num; i++)
+		{
+			for (var j = 0; j < global.cell_num; j++)
+			{
+				var instance, xxx, yyy;
+				
+				// Offset coordinates
+				xxx = xx + j*global.cell_size;
+				if (j%2 == 1)
+					// Default
+					yyy = yy + i*global.cell_size;
+				else
+					// Mirrored over horizontal axis
+					yyy = global.cell_size - yy + i*global.cell_size;
+				
+				// Create instance and store ID
+				instance = instance_create_layer(xxx, yyy, "Instances", obj);
+				ids[i,j] = instance;
+				
+				// Set instance attributes
+				if (j%2 == 1)
+				{
+					// Default
+					instance.direction = dir;
+					instance.image_angle = dir;
+					instance.turn_speed *= spd;
+				}
+				else
+				{
+					// Mirrored over horizontal axis
+					instance.image_yscale *= -1;
+					instance.direction = -dir;
+					instance.image_angle = -dir;
+					instance.turn_speed *= -spd;
+				}
+				instance.parent = par;
+			}
+		}
 		break;
 	
 	// Sphere

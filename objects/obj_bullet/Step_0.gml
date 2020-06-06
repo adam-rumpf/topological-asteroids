@@ -6,3 +6,6 @@ if (room == rm_cylinder || room == rm_mobius)
 else
 	// Otherwise wrap in both directions
 	move_wrap(true, true, 0);
+
+// Set speed
+speed = turn_speed;

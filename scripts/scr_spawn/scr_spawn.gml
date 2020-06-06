@@ -1,4 +1,4 @@
-/// @func scr_spawn(obj, par, sym, xx, yy, dir, spd)
+/// @func scr_spawn(obj, par, sym, x, y, dir, spd)
 /// @desc Spawn an array of objects with the necessary symmetries applied and return array of instance IDs.
 /// @param {object} obj Object type to be spawned.
 /// @param {real} par Parent object ID.

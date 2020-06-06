@@ -1,4 +1,6 @@
-/// @desc Listen for ship interactions.
+/// @desc Set speed and listen for ship interactions.
+
+// 
 
 // Destroy all children if one has signified its own death
 if (dead == true)

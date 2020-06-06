@@ -32,7 +32,7 @@ if (keyboard_check_pressed(vk_space) && can_shoot)
 	*/
 	
 	// Create a parent for the bullets
-	//var parent = instance_create_layer(0, 0, "Instances", obj_bullet_parent);
+	var parent = instance_create_layer(0, 0, "Instances", obj_bullet_parent);
 	
 	// Calculate bullet position (slightly in front of ship to avoid self-collision)
 	var xx, yy;
@@ -46,6 +46,10 @@ if (keyboard_check_pressed(vk_space) && can_shoot)
 	spd = sqrt(sqr(vx)+sqr(vy));
 	dir = point_direction(0, 0, vx, -vy);
 	
+	// Call bullet spawn script and assign children to parent
+	var bl = scr_spawn(obj_bullet, parent, global.symmetry, xx, yy, dir, spd);
+	parent.bullets = bl;
+	
 	
 	
 	
@@ -58,9 +62,9 @@ if (keyboard_check_pressed(vk_space) && can_shoot)
 	instance_create_layer(xx, yy, "Instances", obj_bullet_parent);*/
 	
 	//###
-	var bullet = instance_create_layer(xx, yy, "Instances", obj_bullet);
-	bullet.direction = dir;
-	bullet.speed = spd;
+	//var bullet = instance_create_layer(xx, yy, "Instances", obj_bullet);
+	//bullet.direction = dir;
+	//bullet.speed = spd;
 	
 	// Start firing cooldown
 	can_shoot = false;

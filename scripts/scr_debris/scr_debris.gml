@@ -10,9 +10,18 @@ xx = argument[0];
 yy = argument[1];
 dir = argument[2];
 
+// Main +
 for (var i = 0; i < 4; i++)
 {
 	var debris = instance_create_layer(xx, yy, "Instances", obj_debris);
 	debris.direction = dir + 90*i;
-	debris.speed = 1*room_speed;
+	debris.speed = 0.05*room_speed;
+}
+
+// Smaller X
+for (var i = 0; i < 4; i++)
+{
+	var debris = instance_create_layer(xx, yy, "Instances", obj_debris);
+	debris.direction = dir + 45 + 90*i;
+	debris.speed = 0.025*room_speed;
 }

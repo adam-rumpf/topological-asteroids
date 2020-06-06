@@ -104,13 +104,37 @@ switch sym
 			{
 				var instance, xxx, yyy;
 				
-				//#################################################################################################
-				xx = global.cell_size/2;
-				yy = global.cell_size/2;
-				
 				// Offset coordinates
-				xxx = xx + j*global.cell_size;
-				yyy = yy + i*global.cell_size;
+				if (j%2 == 1)
+				{
+					if (i%2 == 1)
+					{
+						// Default
+						xxx = xx + j*global.cell_size;
+						yyy = yy + i*global.cell_size;
+					}
+					else
+					{
+						// Rotated 90 degrees
+						xxx = yy + j*global.cell_size;
+						yyy = global.cell_size - xx + i*global.cell_size;
+					}
+				}
+				else
+				{
+					if (i%2 == 1)
+					{
+						// Rotated 270 degrees
+						xxx = global.cell_size - yy + j*global.cell_size;
+						yyy = xx + i*global.cell_size;
+					}
+					else
+					{
+						// Rotated 180 degrees
+						xxx = global.cell_size - xx + j*global.cell_size;
+						yyy = global.cell_size - yy + i*global.cell_size;
+					}
+				}
 				
 				// Create instance and store ID
 				instance = instance_create_layer(xxx, yyy, "Instances", obj);

@@ -11,8 +11,8 @@ if (keyboard_check_pressed(vk_space) && can_shoot)
 	
 		// Calculate bullet position (slightly in front of ship to avoid self-collision)
 		var xx, yy;
-		xx = (x + 0.8*sprite_width*cos(degtorad(image_angle))) % global.cell_size;
-		yy = (y - 0.8*sprite_width*sin(degtorad(image_angle))) % global.cell_size;
+		xx = (x + 0.75*sprite_width*cos(degtorad(image_angle))) - global.cell_size;
+		yy = (y - 0.75*sprite_width*sin(degtorad(image_angle))) - global.cell_size;
 	
 		// Calculate bullet velocity (relative to ship velocity)
 		var spd, dir, vx, vy;
@@ -20,11 +20,11 @@ if (keyboard_check_pressed(vk_space) && can_shoot)
 		vy = 10*sin(degtorad(image_angle)) - vspeed;
 		spd = sqrt(sqr(vx)+sqr(vy));
 		dir = point_direction(0, 0, vx, -vy);
+		
+		// Call bullet spawn script and assign children to parent
+		var bl = scr_spawn(obj_bullet, parent, global.symmetry, xx, yy, dir, spd);
+		parent.bullets = bl;
 	}
-	
-	// Call bullet spawn script and assign children to parent
-	var bl = scr_spawn(obj_bullet, parent, global.symmetry, xx, yy, dir, spd);
-	parent.bullets = bl;
 	
 	// Start firing cooldown
 	can_shoot = false;

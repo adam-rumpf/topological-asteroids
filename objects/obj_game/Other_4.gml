@@ -22,7 +22,3 @@ switch room
 		global.symmetry = 5;
 		break;
 }
-
-//### Add an exception for the pause screen.
-// Always reset camera to default
-global.camera = 0;

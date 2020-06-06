@@ -1,0 +1,1 @@
+/// @desc Initializing room attributes.

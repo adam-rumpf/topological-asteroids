@@ -35,12 +35,21 @@ switch sym
 		{
 			for (var j = 0; j < global.cell_num; j++)
 			{
-				var instance = instance_create_layer(i*global.cell_size + xx, j*global.cell_size + yy, "Instances", obj);
+				var instance, xxx, yyy;
+				
+				// Offset coordinates
+				xxx = xx + i*global.cell_size;
+				yyy = yy + j*global.cell_size;
+				
+				// Create instance and store ID
+				instance = instance_create_layer(xxx, yyy, "Instances", obj);
+				ids[i,j] = instance;
+				
+				// Set instance attributes
 				instance.direction = dir;
 				instance.image_angle = dir;
 				instance.turn_speed *= spd;
 				instance.parent = par;
-				ids[i,j] = instance;
 			}
 		}
 		break;

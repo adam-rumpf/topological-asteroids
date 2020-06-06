@@ -2,7 +2,7 @@
     "id": "ac27f7c2-7a06-44b1-9782-fcb1cdd8cffe",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_torus",
+    "name": "obj_spawner",
     "eventList": [
         {
             "id": "7b3cba20-62bc-4695-a521-ddbe16df89f7",

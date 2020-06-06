@@ -183,6 +183,14 @@
             }
         },
         {
+            "Key": "9728f9d7-8664-405f-9128-b871c402b29d",
+            "Value": {
+                "id": "484fb721-3024-4d1d-a3db-c8d1a19984b7",
+                "resourcePath": "rooms\\rm_klein\\rm_klein.yy",
+                "resourceType": "GMRoom"
+            }
+        },
+        {
             "Key": "99e822d6-73d9-482c-a95a-93e68733bc42",
             "Value": {
                 "id": "6dcc38f8-9b52-45b1-a372-fffc59a18a1d",
@@ -234,7 +242,7 @@
             "Key": "ac27f7c2-7a06-44b1-9782-fcb1cdd8cffe",
             "Value": {
                 "id": "af99c8ca-e5e5-447d-8134-7985989be6f7",
-                "resourcePath": "objects\\obj_torus\\obj_torus.yy",
+                "resourcePath": "objects\\obj_spawner\\obj_spawner.yy",
                 "resourceType": "GMObject"
             }
         },

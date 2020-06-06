@@ -95,21 +95,190 @@ switch sym
 			}
 		}
 		break;
-	
+
 	// Sphere
 	case 2:
+		for (var i = 0; i < global.cell_num; i++)
+		{
+			for (var j = 0; j < global.cell_num; j++)
+			{
+				var instance, xxx, yyy;
+				
+				//#################################################################################################
+				xx = global.cell_size/2;
+				yy = global.cell_size/2;
+				
+				// Offset coordinates
+				xxx = xx + j*global.cell_size;
+				yyy = yy + i*global.cell_size;
+				
+				// Create instance and store ID
+				instance = instance_create_layer(xxx, yyy, "Instances", obj);
+				ids[i,j] = instance;
+				
+				// Set instance attributes
+				if (j%2 == 1)
+				{
+					if (i%2 == 1)
+					{
+						// Default
+						instance.direction = dir;
+						instance.image_angle = dir;
+					}
+					else
+					{
+						// Rotated 90 degrees
+						instance.direction = 90 + dir;
+						instance.image_angle = 90 + dir;
+					}
+				}
+				else
+				{
+					if (i%2 == 1)
+					{
+						// Rotated 270 degrees
+						instance.direction = 270 + dir;
+						instance.image_angle = 270 + dir;
+					}
+					else
+					{
+						// Rotated 180 degrees
+						instance.direction = 180 + dir;
+						instance.image_angle = 180 + dir;
+					}
+				}
+				instance.turn_speed *= spd;
+				instance.parent = par;
+			}
+		}
 		break;
-	
+
 	// Real projective plane
 	case 3:
+		for (var i = 0; i < global.cell_num; i++)
+		{
+			for (var j = 0; j < global.cell_num; j++)
+			{
+				var instance, xxx, yyy;
+				
+				// Offset coordinates
+				if (i%2 == 1)
+					// Default
+					xxx = xx + j*global.cell_size;
+				else
+					// Mirrored over vertical axis
+					xxx = global.cell_size - xx + j*global.cell_size;
+				if (j%2 == 1)
+					// Default
+					yyy = yy + i*global.cell_size;
+				else
+					// Mirrored over horizontal axis
+					yyy = global.cell_size - yy + i*global.cell_size;
+				
+				// Create instance and store ID
+				instance = instance_create_layer(xxx, yyy, "Instances", obj);
+				ids[i,j] = instance;
+				
+				// Set instance attributes
+				if (j%2 == 1)
+				{
+					if (i%2 == 1)
+					{
+						// Default
+						instance.direction = dir;
+						instance.image_angle = dir;
+						instance.turn_speed *= spd;
+					}
+					else
+					{
+						instance.image_yscale *= -1;
+						instance.direction = 180 - dir;
+						instance.image_angle = 180 - dir;
+						instance.turn_speed *= -spd;
+					}
+				}
+				else
+				{
+					if (i%2 == 1)
+					{
+						// Mirrored over horizontal axis
+						instance.image_yscale *= -1;
+						instance.direction = -dir;
+						instance.image_angle = -dir;
+						instance.turn_speed *= -spd;
+					}
+					else
+					{
+						// Rotated 180 degrees
+						instance.direction = 180 + dir;
+						instance.image_angle = 180 + dir;
+						instance.turn_speed *= spd;
+					}
+				}
+				instance.parent = par;
+			}
+		}
 		break;
 	
 	// Cylinder
 	case 4:
+		for (var j = 0; j < global.cell_num; j++)
+		{
+			var instance, xxx, yyy;
+			
+			// Offset coordinates
+			xxx = xx + j*global.cell_size;
+			yyy = yy + global.cell_size;
+			
+			// Create instance and store ID
+			instance = instance_create_layer(xxx, yyy, "Instances", obj);
+			ids[1,j] = instance;
+			
+			// Set instance attributes
+			instance.direction = dir;
+			instance.image_angle = dir;
+			instance.turn_speed *= spd;
+			instance.parent = par;
+		}
 		break;
 	
 	// Mobius strip
 	case 5:
+		for (var j = 0; j < global.cell_num; j++)
+		{
+			var instance, xxx, yyy;
+			
+			// Offset coordinates
+			xxx = xx + j*global.cell_size;
+			if (j%2 == 1)
+				// Default
+				yyy = yy + global.cell_size;
+			else
+				// Mirrored over horizontal axis
+				yyy = global.cell_size - yy + global.cell_size;
+			
+			// Create instance and store ID
+			instance = instance_create_layer(xxx, yyy, "Instances", obj);
+			ids[1,j] = instance;
+			
+			// Set instance attributes
+			if (j%2 == 1)
+			{
+				// Default
+				instance.direction = dir;
+				instance.image_angle = dir;
+				instance.turn_speed *= spd;
+			}
+			else
+			{
+				// Mirrored over horizontal axis
+				instance.image_yscale *= -1;
+				instance.direction = -dir;
+				instance.image_angle = -dir;
+				instance.turn_speed *= -spd;
+			}
+			instance.parent = par;
+		}
 		break;
 }
 

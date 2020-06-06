@@ -8,4 +8,8 @@ if (keyboard_check_pressed(ord("2")))
 if (keyboard_check_pressed(ord("3")))
 	room_goto(rm_sphere);
 if (keyboard_check_pressed(ord("4")))
-	room_goto(rm_sphere);
+	room_goto(rm_rpp);
+if (keyboard_check_pressed(ord("5")))
+	room_goto(rm_cylinder);
+if (keyboard_check_pressed(ord("6")))
+	room_goto(rm_mobius);

@@ -12,6 +12,7 @@ draw_set_font(fnt_arial_huge);
 global.cell_size = 640; // sice of unit cell (px)
 global.cell_num = 4; // number of cells in each dimension of the game room
 global.warning_time = 2; // time between warning and asteroid spawning (sec)
+global.view_scale = 1; // scale for display size
 
 /*
 Set symmetry type. Type IDs include:
@@ -30,4 +31,4 @@ Set camera mode. Mode IDs include:
 	1 -- follow ship
 	2 -- zoomed out
 */
-camera = 0;
+global.camera = 0;

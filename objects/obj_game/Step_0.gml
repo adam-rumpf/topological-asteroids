@@ -10,4 +10,8 @@ if (keyboard_check_pressed(vk_escape))
 		room_goto(rm_title);
 }
 
-//### Have this object control the sounds, to prevent too many from playing at once.
+// [C] pressed -- change camera mode
+//###
+if (keyboard_check_pressed(ord("C")))
+	//global.camera = (global.camera+1) % 3;
+	global.camera = (global.camera+1) % 4;

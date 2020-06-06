@@ -1,4 +1,4 @@
-/// @desc Initializing room attributes.
+/// @desc Initializing room and  attributes.
 
 // Set initial asteroid timer
 delay = 6;

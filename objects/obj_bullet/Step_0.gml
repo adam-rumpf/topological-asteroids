@@ -8,4 +8,4 @@ else
 	move_wrap(true, true, 0);
 
 // Set speed
-speed = turn_speed;
+speed = abs(turn_speed);

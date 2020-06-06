@@ -4,6 +4,10 @@
 //### Implement after testing is done.
 //randomize();
 
+//### Testing variables.
+global.spawns = 0; // number of times scr_spawn() has been called
+draw_set_font(fnt_arial_huge);
+
 // Define global variables
 global.cell_size = 640; // sice of unit cell (px)
 global.cell_num = 4; // number of cells in each dimension of the game room

@@ -1,3 +1,3 @@
-/// @desc Reset room.
+/// @desc Resets firing cooldown.
 
-room_restart();
+can_shoot = true;

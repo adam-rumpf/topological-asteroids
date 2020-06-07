@@ -11,7 +11,6 @@ if (keyboard_check_pressed(vk_escape))
 }
 
 // [C] pressed -- change camera mode
-//###
 if (keyboard_check_pressed(ord("C")))
 {
 	global.camera = (global.camera+1) % 4;

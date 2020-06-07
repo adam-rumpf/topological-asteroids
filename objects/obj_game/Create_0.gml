@@ -28,3 +28,11 @@ Set camera mode. Mode IDs include:
 	3 -- entire room (2D symmetries only)
 */
 global.camera = 0;
+
+/*
+Set difficulty level. Difficulty IDs include:
+	0 -- free play
+	1 -- normal
+	2 -- hard
+*/
+global.difficulty = 1;

@@ -36,3 +36,7 @@ Set difficulty level. Difficulty IDs include:
 	2 -- hard
 */
 global.difficulty = 1;
+
+// Variables for a pause screen
+paused = false;
+pause_screen = -1; // ID of pause screen surface to draw to

@@ -1,4 +1,4 @@
-/// @desc Room initialization code.
+/// @desc Set global symmetry value based on room.
 
 // Set symmetry value
 switch room

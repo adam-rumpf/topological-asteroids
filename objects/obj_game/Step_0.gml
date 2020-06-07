@@ -2,13 +2,8 @@
 
 //### Eventually replace this with a pause menu and a quit confirmation.
 // On [Esc] press, either go to the title scren or exit.
-if (keyboard_check_pressed(vk_escape))
-{
-	if (room == rm_title)
-		game_end();
-	else
-		room_goto(rm_title);
-}
+if (keyboard_check_pressed(vk_escape) && room != rm_title)
+	room_goto(rm_title);
 
 // [C] pressed -- change camera mode
 if (keyboard_check_pressed(ord("C")))

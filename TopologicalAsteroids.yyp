@@ -87,6 +87,14 @@
             }
         },
         {
+            "Key": "1683615a-617f-4cc3-8714-3c5f61f3ade6",
+            "Value": {
+                "id": "e962ff21-7fc0-42b4-bf07-bb6bdf03c7ff",
+                "resourcePath": "scripts\\scr_close_game\\scr_close_game.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "1a23084c-851d-4810-b2e4-cc7966f181c3",
             "Value": {
                 "id": "b87381ca-caee-414a-84f2-d4b6ca0674fa",
@@ -553,7 +561,8 @@
     ],
     "script_order": [
         "3433ff8f-ad50-4919-9ec8-34e8e8a3fb27",
-        "0d2b8d82-6dc8-430c-a648-f3e25cd3c23a"
+        "0d2b8d82-6dc8-430c-a648-f3e25cd3c23a",
+        "1683615a-617f-4cc3-8714-3c5f61f3ade6"
     ],
     "tutorial": ""
 }

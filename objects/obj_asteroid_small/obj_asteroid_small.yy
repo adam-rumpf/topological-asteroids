@@ -1,18 +1,18 @@
 {
-    "id": "0b7d53c8-69f2-42af-85df-aa1da670a5f5",
+    "id": "2ab0fcba-826f-457b-a9d3-df1ed4c0272c",
     "modelName": "GMObject",
     "mvc": "1.0",
-    "name": "obj_asteroid_large",
+    "name": "obj_asteroid_small",
     "eventList": [
         {
-            "id": "5c0e0f7f-d4c2-43f3-bfd5-fb700dc081d0",
+            "id": "bc879ef5-3d2f-48be-bc60-c0a9aa1d3e6e",
             "modelName": "GMEvent",
             "mvc": "1.0",
             "IsDnD": false,
             "collisionObjectId": "00000000-0000-0000-0000-000000000000",
             "enumb": 0,
             "eventtype": 2,
-            "m_owner": "0b7d53c8-69f2-42af-85df-aa1da670a5f5"
+            "m_owner": "2ab0fcba-826f-457b-a9d3-df1ed4c0272c"
         }
     ],
     "maskSpriteId": "00000000-0000-0000-0000-000000000000",

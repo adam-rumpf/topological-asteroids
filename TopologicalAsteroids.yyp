@@ -71,6 +71,14 @@
             }
         },
         {
+            "Key": "1a23084c-851d-4810-b2e4-cc7966f181c3",
+            "Value": {
+                "id": "b87381ca-caee-414a-84f2-d4b6ca0674fa",
+                "resourcePath": "objects\\obj_asteroid_medium\\obj_asteroid_medium.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
             "Key": "21458199-7bc0-452c-b5a1-f17e465163ba",
             "Value": {
                 "id": "b5cfc9ae-7229-493c-83e5-9877c29cb915",
@@ -91,6 +99,14 @@
             "Value": {
                 "id": "eb21fe80-8b7a-4dfd-aeb6-13a362e08d09",
                 "resourcePath": "objects\\obj_letterbox\\obj_letterbox.yy",
+                "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "2ab0fcba-826f-457b-a9d3-df1ed4c0272c",
+            "Value": {
+                "id": "cdec94d7-a176-4900-921e-9d0fa49cf530",
+                "resourcePath": "objects\\obj_asteroid_small\\obj_asteroid_small.yy",
                 "resourceType": "GMObject"
             }
         },
@@ -466,7 +482,7 @@
             "Key": "d19daf1f-e5e0-4389-b1a1-83620032c6d6",
             "Value": {
                 "id": "1d1b33c7-d341-4c24-8ee5-6eb5a4979d20",
-                "resourcePath": "sprites\\spr_warning_large\\spr_warning_large.yy",
+                "resourcePath": "sprites\\spr_warning\\spr_warning.yy",
                 "resourceType": "GMSprite"
             }
         },

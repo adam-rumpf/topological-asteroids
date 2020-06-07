@@ -1,33 +1,32 @@
 /// @desc Spawn asteroid objects and remember their IDs.
 
 // Pick a random rotation speed, position, and angle
-var xx, yy, dir, ship;
-do
-{
-	// Avoid spawning on top of the player
-	xx = irandom(global.cell_size-1);
-	yy = irandom(global.cell_size-1);
-	ship = instance_nearest(xx, yy, obj_ship);
-}
-until (point_distance(xx, yy, ship.x, ship.y) > 2*ship.sprite_width);
+var xx, yy, dir;
+xx = irandom(global.cell_size-1);
+yy = irandom(global.cell_size-1);
 dir = irandom(359);
 
 // Pick a random size and speed
 var spd, asteroid;
 switch irandom_range(1, 3)
 {
-	//### Implement other cases later. Make smaller asteroids faster.
-	
 	// Small
 	case 1:
+		asteroid = obj_asteroid_small;
+		spd = (choose(-1, 1) * random_range(1, 3)) * (60/room_speed);
+		break;
 	
 	// Medium
 	case 2:
+		asteroid = obj_asteroid_medium;
+		spd = (choose(-1, 1) * random_range(0.75, 2.5)) * (60/room_speed);
+		break;
 	
 	// Large
 	case 3:
 		asteroid = obj_asteroid_large;
 		spd = (choose(-1, 1) * random_range(0.5, 2)) * (60/room_speed);
+		break;
 }
 
 // Spawn an array of warning objects

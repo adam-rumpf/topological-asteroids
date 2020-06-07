@@ -30,5 +30,6 @@ Set camera mode. Mode IDs include:
 	0 -- locked to fundamental polygon
 	1 -- follow ship
 	2 -- zoomed out
+	3 -- entire room (2D symmetries only)
 */
 global.camera = 0;

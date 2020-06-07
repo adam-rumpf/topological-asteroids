@@ -15,6 +15,6 @@ if (keyboard_check_pressed(vk_escape))
 if (keyboard_check_pressed(ord("C")))
 {
 	global.camera = (global.camera+1) % 4;
-	if (room == rm_cylinder || room = rm_klein)
+	if (room == rm_cylinder || room = rm_mobius)
 		global.camera = global.camera % 3;
 }

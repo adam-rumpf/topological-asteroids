@@ -5,6 +5,52 @@ if (dead == true)
 {
 	//### We would also play a single destruction sound at this time.
 	
+	// Large asteroids break into two medium asteroids
+	if (size == 2)
+	{
+		repeat (2)
+		{
+			// Create a new non-spawning parent to store the new child
+			var parent = instance_create_layer(x, y, "Instances", obj_asteroid_parent_empty);
+			
+			// Spawn a set of medium asteroids centered at the current main asteroid
+			// Choose random speed and direction
+			var xx, yy, spd, dir;
+			xx = asteroids[1,1].x - global.cell_size;
+			yy = asteroids[1,1].y - global.cell_size;
+			spd = (choose(-1, 1) * random_range(0.75, 2.5)) * (60/room_speed);
+			dir = irandom(359);
+			var ls = scr_spawn(obj_asteroid_medium_immediate, parent, global.symmetry, xx, yy, dir, spd);
+			
+			// Assign the child list to the new parent
+			parent.asteroids = ls;
+			parent.size = 1;
+		}
+	}
+	
+	// Medium asteroids break into two small asteroids
+	if (size == 1)
+	{
+		repeat (2)
+		{
+			// Create a new non-spawning parent to store the new child
+			var parent = instance_create_layer(x, y, "Instances", obj_asteroid_parent_empty);
+			
+			// Spawn a set of medium asteroids centered at the current main asteroid
+			// Choose random speed and direction
+			var xx, yy, spd, dir;
+			xx = asteroids[1,1].x - global.cell_size;
+			yy = asteroids[1,1].y - global.cell_size;
+			spd = (choose(-1, 1) * random_range(1, 3)) * (60/room_speed);
+			dir = irandom(359);
+			var ls = scr_spawn(obj_asteroid_small_immediate, parent, global.symmetry, xx, yy, dir, spd);
+			
+			// Assign the child list to the new parent
+			parent.asteroids = ls;
+			parent.size = 0;
+		}
+	}
+	
 	// Loop through all children to destroy them
 	if (room = rm_cylinder || room = rm_mobius)
 	{

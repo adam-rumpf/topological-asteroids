@@ -1,12 +1,7 @@
 /// @desc Initialization code for game.
 
 // Set random seed
-//### Implement after testing is done.
-//randomize();
-
-//### Testing variables.
-global.spawns = 0; // number of times scr_spawn() has been called
-draw_set_font(fnt_arial_huge);
+randomize();
 
 // Define global variables
 global.cell_size = 640; // sice of unit cell (px)

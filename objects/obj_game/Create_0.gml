@@ -8,6 +8,16 @@ global.cell_size = 640; // sice of unit cell (px)
 global.cell_num = 4; // number of cells in each dimension of the game room
 global.warning_time = 2; // time between warning and asteroid spawning (sec)
 global.view_scale = 1; // scale for display size
+global.sound_volume = 0; // current volume of sound effects (read from settings.ini)
+global.alive = false; // whether the player is currently alive
+
+// Define high score array (read from scores.sav)
+global.high_scores = 0;
+for (var i = 0; i < 6; i++)
+{
+	global.high_scores[i,0] = 0;
+	global.high_scores[i,1] = 0;
+}
 
 /*
 Set symmetry type. Type IDs include:

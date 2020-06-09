@@ -1,8 +1,5 @@
 /// @desc Title screen controller initialization.
 
-// Set text font
-draw_set_font(fnt_arial);
-
 /*
 Set state variable to indicate position in menu structure. Sate IDs include:
 	+(0) Default main menu

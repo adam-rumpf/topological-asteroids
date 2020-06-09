@@ -18,6 +18,10 @@ if (dead == true)
 		}
 	}
 	
+	// Add to score (unless dead)
+	if (global.alive == true)
+		score += 100;
+	
 	// Then destroy self
 	instance_destroy();
 }

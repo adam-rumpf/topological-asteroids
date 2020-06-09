@@ -34,6 +34,13 @@ if (keyboard_check_pressed(vk_space) && can_shoot)
 // Destroy all children if one has signified its own death
 if (dead == true)
 {
+	// Decrease life count
+	lives -= 1;
+	
+	// Set global and local death variables
+	global.alive = false;
+	dead = false;
+	
 	//### We would also play a single destruction sound at this time.
 	
 	// Loop through all children to destroy them
@@ -51,9 +58,6 @@ if (dead == true)
 		}
 	}
 	
-	// Set a delay and then restart the room
+	// Set a delay to reset the room
 	alarm[1] = 3*room_speed;
-	
-	// Reset flag to prevent timer from resetting
-	dead = false;
 }

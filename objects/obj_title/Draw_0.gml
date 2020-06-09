@@ -1,5 +1,7 @@
 /// @desc Draw text on title screen.
 
+// Set text font and define colors
+draw_set_font(fnt_arial);
 var cw = c_white;
 
 // Decide what to draw based on current menu screen
@@ -22,8 +24,7 @@ switch state
 	case 4:
 		draw_set_halign(fa_center);
 		//### Temporary
-		draw_text_color(room_width/2, (room_height/2)-30, "Are you sure you want to quit?", cw, cw, cw, cw, 1);
-		draw_text_color(room_width/2, (room_height/2)+0, "Press [Enter] to quit", cw, cw, cw, cw, 1);
-		draw_text_color(room_width/2, (room_height/2)+30, "Press [Esc] to go back", cw, cw, cw, cw, 1);
+		draw_text_color(room_width/2, room_height/2, "Press [Esc] again to quit.", cw, cw, cw, cw, 1);
+		draw_text_color(room_width/2, (room_height/2)+30, "Press [Enter] to return to main menu.", cw, cw, cw, cw, 1);
 		break;
 }

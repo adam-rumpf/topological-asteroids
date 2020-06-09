@@ -48,10 +48,10 @@ switch state
 	
 	// Quit confirmation
 	case 4:
-		// If confirming quit, listen for [Enter] to quit and [Esc] to go back
-		if (keyboard_check_pressed(vk_enter))
-			scr_close_game();
+		// If confirming quit, listen for [Esc] to quit and [Enter] to go back
 		if (keyboard_check_pressed(vk_escape))
+			scr_close_game();
+		if (keyboard_check_pressed(vk_enter))
 			state = 0;
 		break;
 }

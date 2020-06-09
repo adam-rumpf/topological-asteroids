@@ -3,6 +3,6 @@ options/
 *.exe
 *.win
 *.ini
-*.sav
 *.zip
 *.lnk
+*.dat

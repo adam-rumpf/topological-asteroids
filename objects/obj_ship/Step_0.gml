@@ -10,7 +10,12 @@ if (keyboard_check(vk_right) || keyboard_check(ord("D")))
 
 // [Up] or [W] -- thrust forward
 if (keyboard_check(vk_up) || keyboard_check(ord("W")))
+{
 	motion_add(image_angle, acceleration);
+	image_index = 1;
+}
+else
+	image_index = 0;
 
 // [Space] press -- fire a bullet (accounting for fire delay)
 // Bullet firing is actually handled by the ship parent object.

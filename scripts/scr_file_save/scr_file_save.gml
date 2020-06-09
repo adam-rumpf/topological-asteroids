@@ -16,10 +16,12 @@ ini_close();
 // Scores
 if (file_exists(scores))
 	file_delete(scores);
-var map = ds_map_create();
+var f = file_text_open_write(scores);
 for (var i = 0; i < 6; i++)
 {
-	ds_map_add(map, "r0"+string(i), global.high_scores[i,0]);
-	ds_map_add(map, "r1"+string(i), global.high_scores[i,1]);
+	file_text_write_string(f, base64_encode(string(global.high_scores[i,0])));
+	file_text_writeln(f);
+	file_text_write_string(f, base64_encode(string(global.high_scores[i,1])));
+	file_text_writeln(f);
 }
-ds_map_secure_save(map, scores);
+file_text_close(f);

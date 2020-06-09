@@ -1,4 +1,5 @@
 _resources/
+options/
 *.exe
 *.win
 *.ini

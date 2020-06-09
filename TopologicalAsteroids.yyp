@@ -143,6 +143,14 @@
             }
         },
         {
+            "Key": "322f57cb-7787-4f96-9069-bde6795285d9",
+            "Value": {
+                "id": "000f6ca1-c471-475e-b98f-f44a87a04b24",
+                "resourcePath": "sprites\\spr_polyhedron_mobius\\spr_polyhedron_mobius.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "32943f33-7088-4866-b08d-66cb2e460265",
             "Value": {
                 "id": "50ed07e0-196a-43f0-9c5a-662afdd6d316",
@@ -239,10 +247,26 @@
             }
         },
         {
+            "Key": "559103cf-e517-4a9e-ab3a-15069b282014",
+            "Value": {
+                "id": "a0650495-ec98-4d39-83ed-0e0ef4cab404",
+                "resourcePath": "views\\559103cf-e517-4a9e-ab3a-15069b282014.yy",
+                "resourceType": "GMFolder"
+            }
+        },
+        {
             "Key": "5de77eb0-164a-41b9-bc45-1affdf95e0e2",
             "Value": {
                 "id": "9ea583a3-77d7-443b-ab9b-a9c1b8805fc3",
                 "resourcePath": "sprites\\spr_bullet\\spr_bullet.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
+            "Key": "5ec74a8c-66b9-4e16-b6da-c47123fb159e",
+            "Value": {
+                "id": "71bbd29e-b9cb-46e3-81f6-3c6c1466ed5e",
+                "resourcePath": "sprites\\spr_polyhedron_klein\\spr_polyhedron_klein.yy",
                 "resourceType": "GMSprite"
             }
         },
@@ -391,11 +415,27 @@
             }
         },
         {
+            "Key": "a61a09ed-d8f3-4aca-a337-4031225c8875",
+            "Value": {
+                "id": "c5c16cad-77ab-484e-8e7b-9e420c270fda",
+                "resourcePath": "sprites\\spr_polyhedron_cylinder\\spr_polyhedron_cylinder.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "a7dd3d2c-befc-44cf-ae35-9ecf985bf32c",
             "Value": {
                 "id": "fe428108-8d27-48be-8d20-fbc7d470c3b8",
                 "resourcePath": "views\\a7dd3d2c-befc-44cf-ae35-9ecf985bf32c.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "a9188620-a624-4a5a-83ae-a1b53faf038b",
+            "Value": {
+                "id": "db03e512-6dbb-4f39-b2fb-9351ed0fe748",
+                "resourcePath": "options\\linux\\options_linux.yy",
+                "resourceType": "GMLinuxOptions"
             }
         },
         {
@@ -439,6 +479,14 @@
             }
         },
         {
+            "Key": "be0b95d8-6ae0-484b-a13e-49647e52641c",
+            "Value": {
+                "id": "7ded3da5-5cd8-4568-9dac-41ab0e7b1985",
+                "resourcePath": "sprites\\spr_polyhedron_rpp\\spr_polyhedron_rpp.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "c26a5517-741b-489b-a8de-a486ba7e5cba",
             "Value": {
                 "id": "68d269ae-682a-4423-b1b3-a19c1734f118",
@@ -452,6 +500,14 @@
                 "id": "ef37a5b8-d261-4612-824b-0f257e97c9d9",
                 "resourcePath": "objects\\obj_camera\\obj_camera.yy",
                 "resourceType": "GMObject"
+            }
+        },
+        {
+            "Key": "c6922efe-5745-4698-8d55-bf523e8a2eb4",
+            "Value": {
+                "id": "cb8623ba-393c-4641-967d-52c935277d40",
+                "resourcePath": "sprites\\spr_polyhedron_torus\\spr_polyhedron_torus.yy",
+                "resourceType": "GMSprite"
             }
         },
         {
@@ -535,11 +591,27 @@
             }
         },
         {
+            "Key": "f418569b-3bdd-4706-a0e4-364317f54032",
+            "Value": {
+                "id": "f21b6e6c-f2d8-4699-82ec-fde344e9966f",
+                "resourcePath": "options\\mac\\options_mac.yy",
+                "resourceType": "GMMacOptions"
+            }
+        },
+        {
             "Key": "f8dcd555-f077-44a0-8d1b-d00d5f9e05c6",
             "Value": {
                 "id": "6859aa80-2fab-41d2-9dd5-404fd12392cc",
                 "resourcePath": "views\\f8dcd555-f077-44a0-8d1b-d00d5f9e05c6.yy",
                 "resourceType": "GMFolder"
+            }
+        },
+        {
+            "Key": "fc1afc03-84e1-40f4-8d65-8023cfbd92a5",
+            "Value": {
+                "id": "5702b070-5999-4ee8-9df5-8f7acc9259bd",
+                "resourcePath": "sprites\\spr_polyhedron_sphere\\spr_polyhedron_sphere.yy",
+                "resourceType": "GMSprite"
             }
         },
         {

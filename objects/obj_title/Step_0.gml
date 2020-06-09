@@ -9,7 +9,7 @@ switch state
 		// [Esc] -- Confirm quit
 		if (keyboard_check_pressed(vk_escape))
 		{
-			state = 3;
+			state = 4;
 			exit;
 		}
 	
@@ -47,7 +47,7 @@ switch state
 		break;
 	
 	// Quit confirmation
-	case 3:
+	case 4:
 		// If confirming quit, listen for [Enter] to quit and [Esc] to go back
 		if (keyboard_check_pressed(vk_enter))
 			scr_close_game();

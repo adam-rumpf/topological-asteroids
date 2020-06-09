@@ -22,49 +22,35 @@ switch global.difficulty
 // Set current score to 0
 score = 0;
 
-// Get best score from list
-highest_score = -1;
+// Figure out current room and difficulty
+rid = 0; // room ID
+did = global.difficulty - 1; // difficulty ID
 switch room
 {
 	case rm_torus:
-		if (global.difficulty == 1)
-			best_score = global.high_scores[0,0];
-		else if (global.difficulty == 2)
-			best_score = global.high_scores[0,1];
+		rid = 0;
 		break;
 	
 	case rm_klein:
-		if (global.difficulty == 1)
-			best_score = global.high_scores[1,0];
-		else if (global.difficulty == 2)
-			best_score = global.high_scores[1,1];
+		rid = 1;
 		break;
 	
 	case rm_sphere:
-		if (global.difficulty == 1)
-			best_score = global.high_scores[2,0];
-		else if (global.difficulty == 2)
-			best_score = global.high_scores[2,1];
+		rid = 2;
 		break;
 	
 	case rm_rpp:
-		if (global.difficulty == 1)
-			best_score = global.high_scores[3,0];
-		else if (global.difficulty == 2)
-			best_score = global.high_scores[3,1];
+		rid = 3;
 		break;
 	
 	case rm_cylinder:
-		if (global.difficulty == 1)
-			best_score = global.high_scores[4,0];
-		else if (global.difficulty == 2)
-			best_score = global.high_scores[4,1];
+		rid = 4;
 		break;
 	
 	case rm_mobius:
-		if (global.difficulty == 1)
-			best_score = global.high_scores[5,0];
-		else if (global.difficulty == 2)
-			best_score = global.high_scores[5,1];
+		rid = 5;
 		break;
 }
+
+// Get best score from list
+highest_score = global.high_scores[rid,did];

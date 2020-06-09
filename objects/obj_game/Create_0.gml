@@ -8,7 +8,7 @@ global.cell_size = 640; // sice of unit cell (px)
 global.cell_num = 4; // number of cells in each dimension of the game room
 global.warning_time = 2; // time between warning and asteroid spawning (sec)
 global.view_scale = 1; // scale for display size
-global.sound_volume = 0; // current volume of sound effects (read from settings.ini)
+global.sound_volume = 5; // current volume of sound effects (read from settings.ini)
 global.alive = false; // whether the player is currently alive
 
 // Define high score array (read from scores.sav)
@@ -50,3 +50,6 @@ global.difficulty = 1;
 // Variables for a pause screen
 paused = false;
 pause_screen = -1; // ID of pause screen surface to draw to
+
+// Load files
+scr_file_load();

@@ -1,7 +1,7 @@
 // @desc Draw lives and score on GUI.
 
 // Set text font and set colors
-draw_set_font(fnt_arial);
+draw_set_font(fnt_consolas);
 var cw = c_white;
 var bc = c_white;
 if (score >= highest_score)

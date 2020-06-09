@@ -1,7 +1,7 @@
 /// @desc Draw text on title screen.
 
 // Set text font and define colors
-draw_set_font(fnt_arial);
+draw_set_font(fnt_consolas);
 var cw = c_white;
 
 // Decide what to draw based on current menu screen

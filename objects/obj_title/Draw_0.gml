@@ -36,13 +36,24 @@ switch menu
 	// Main menu
 	case 0:
 		options = ["Start Game", "Options", "Credits", "Quit"];
+		current_pos_target = scr_menu(options, current);
+		break;
+	
+	// Game mode menu
+	case 1:
+		options = ["Choose a surface:", "Torus", "Klein Bottle", "Sphere", "Real Projective Plane", "Cylinder", "Mobius Strip", "[back]"];
+		current_pos_target = scr_menu(options, current);
+		break;
+	
+	// Credits
+	case 3:
+		options = ["back"];
+		current_pos_target = scr_credits();
 		break;
 	
 	// Quit confirmation
 	case 4:
-		options = ["Are you sure you want to quit?", "Yes, quit.", "No, go back."];
+		options = ["Are you sure you want to quit?", "[quit]", "[back]"];
+		current_pos_target = scr_menu(options, current);
 		break;
 }
-
-// Display the menu options
-current_pos_target = scr_menu(options, current);

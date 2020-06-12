@@ -11,8 +11,6 @@ Set state variable to indicate position in menu structure. Sate IDs include:
 	| +-+(9) Options for cylinder
 	| +-+(10) Options for Mobius
 	+-+(2) Options (sound settings, view controls)
-	| +-+(11) Sound settings
-	| +-+(12) View controls
 	+-+(3) Credits
 	+-+(4) Quit confirmation
 */

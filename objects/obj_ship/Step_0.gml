@@ -17,7 +17,7 @@ if (keyboard_check(vk_up) || keyboard_check(ord("W")))
 else
 	image_index = 0;
 
-// [Space] press -- fire a bullet (accounting for fire delay)
+// [Space] or [Enter] press -- fire a bullet (accounting for fire delay)
 // Bullet firing is actually handled by the ship parent object.
 
 // Wrap at edges of overall room torus

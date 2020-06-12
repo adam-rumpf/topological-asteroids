@@ -1,7 +1,7 @@
 /// @desc Gameplay ship spawning and destruction events.
 
-// [Space] press -- fire a bullet (accounting for fire delay)
-if (keyboard_check_pressed(vk_space) && can_shoot)
+// [Space] or [Enter] press -- fire a bullet (accounting for fire delay)
+if ((keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)) && can_shoot)
 {
 	// Relative to base ship
 	with (base)

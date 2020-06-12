@@ -4,8 +4,19 @@
 Set state variable to indicate position in menu structure. Sate IDs include:
 	+(0) Default main menu
 	+-+(1) Play (present options for all game rooms)
-	+-+(2) Options (sound and difficulty settings)
-	+-+(3) Controls (display controls)
+	| +-+(5) Options for torus (difficulty, option to back out)
+	| +-+(6) Options for Klein
+	| +-+(7) Options for sphere
+	| +-+(8) Options for RPP
+	| +-+(9) Options for cylinder
+	| +-+(10) Options for Mobius
+	+-+(2) Options (sound settings, view controls)
+	| +-+(11) Sound settings
+	| +-+(12) View controls
+	+-+(3) Credits
 	+-+(4) Quit confirmation
 */
-state = 0; // always begin on main menu
+menu = 0; // always begin on main menu
+
+// Set a variable to indicate the current menu option
+current = 0;

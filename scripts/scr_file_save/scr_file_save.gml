@@ -10,7 +10,6 @@ if (file_exists(settings))
 	file_delete(settings);
 ini_open(settings);
 ini_write_real("option", "sound", global.sound_volume);
-ini_write_real("option", "difficulty", global.difficulty);
 ini_close();
 
 // Scores

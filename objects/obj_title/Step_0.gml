@@ -2,19 +2,49 @@
 
 // Decide behavior based on menu state
 //###
-switch state
+switch menu
 {
 	// Main menu
 	case 0:
+		var choices = 4;
+		
 		// [Esc] -- Confirm quit
 		if (keyboard_check_pressed(vk_escape))
 		{
-			state = 4;
+			menu = 4;
 			exit;
 		}
+		
+		// [Up] or [W] -- Move selection up
+		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+			current = scr_mod(current-1, choices)
+		
+		// [Down] or [S] -- Move selection down
+		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+			current = scr_mod(current+1, choices)
+		
+		// [Enter] or [Space] -- Select current choice
+		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+		{
+			switch current
+			{
+				// Start
+				case 0: menu = 1; break;
+				// Options
+				case 1: menu = 2; break;
+				// Credits
+				case 2: menu = 3; break;
+				// Quit
+				case 3: menu = 4; break;
+			}
+			
+			current = 0;
+		}
+		
+		break;
 	
 		//### Temporary code to enter test room from menu.
-		if (keyboard_check_pressed(ord("1")))
+		/*if (keyboard_check_pressed(ord("1")))
 		{
 			global.camera = 0;
 			room_goto(rm_torus);
@@ -44,7 +74,7 @@ switch state
 			global.camera = 0;
 			room_goto(rm_mobius);
 		}
-		break;
+		break;*/
 	
 	// Quit confirmation
 	case 4:
@@ -52,6 +82,6 @@ switch state
 		if (keyboard_check_pressed(vk_escape))
 			scr_close_game();
 		if (keyboard_check_pressed(vk_enter))
-			state = 0;
+			menu = 0;
 		break;
 }

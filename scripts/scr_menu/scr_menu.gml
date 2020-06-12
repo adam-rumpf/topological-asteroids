@@ -1,5 +1,5 @@
 /// @func scr_menu(options, current)
-/// @desc Display a given list of menu options.
+/// @desc Display a given list of menu options. Returns the vertical coordinate of the selected option.
 /// @param {string[]} options An array of strings to display as options.
 /// @param {int} current The array index of the current option.
 
@@ -11,16 +11,17 @@ current = argument[1];
 // Set text font and define colors
 draw_set_font(fnt_consolas);
 draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
 var cw = c_white;
 var cy = c_yellow;
 
-// 0
-// -15, 15
-// -30, 0, 30
-// -45, -15, 15, 45
-
-// Draw each menu option
+// Get list length and quit if empty
 var num = array_length_1d(options);
+var current_pos = -1;
+if (num == 0)
+	return current_pos;
+
+// Draw each list item
 for (var i = 0; i < num; i++)
 {
 	// Calculate vertical position
@@ -32,6 +33,9 @@ for (var i = 0; i < num; i++)
 	// Selected style
 	else
 	{
+		current_pos = pos;
 		draw_text_color(room_width/2, pos, options[i], cy, cy, cy, cy, 1);
 	}
 }
+
+return current_pos

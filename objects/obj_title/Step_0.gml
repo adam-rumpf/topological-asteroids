@@ -12,6 +12,7 @@ switch menu
 		if (keyboard_check_pressed(vk_escape))
 		{
 			menu = 4;
+			current = 1; // 0 corresponds to the confirm message on the quit screen
 			exit;
 		}
 		
@@ -39,49 +40,45 @@ switch menu
 			}
 			
 			current = 0;
+			if (menu == 4)
+				current = 1;
 		}
 		
 		break;
 	
-		//### Temporary code to enter test room from menu.
-		/*if (keyboard_check_pressed(ord("1")))
-		{
-			global.camera = 0;
-			room_goto(rm_torus);
-		}
-		if (keyboard_check_pressed(ord("2")))
-		{
-			global.camera = 0;
-			room_goto(rm_klein);
-		}
-		if (keyboard_check_pressed(ord("3")))
-		{
-			global.camera = 0;
-			room_goto(rm_sphere);
-		}
-		if (keyboard_check_pressed(ord("4")))
-		{
-			global.camera = 0;
-			room_goto(rm_rpp);
-		}
-		if (keyboard_check_pressed(ord("5")))
-		{
-			global.camera = 0;
-			room_goto(rm_cylinder);
-		}
-		if (keyboard_check_pressed(ord("6")))
-		{
-			global.camera = 0;
-			room_goto(rm_mobius);
-		}
-		break;*/
-	
 	// Quit confirmation
 	case 4:
-		// If confirming quit, listen for [Esc] to quit and [Enter] to go back
+		var choices = 3; // index 0 corresponds to the quit confirmation message
+		
+		// [Esc] -- Quit
 		if (keyboard_check_pressed(vk_escape))
 			scr_close_game();
-		if (keyboard_check_pressed(vk_enter))
-			menu = 0;
+		
+		// [Up] or [W] or [Down] or [S] -- Toggle selection
+		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")) || keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+		{
+			if (current >= 2)
+				current = 1;
+			else
+				current = 2;
+		}
+		
+		// [Enter] or [Space] -- Select current choice
+		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+		{
+			switch current
+			{
+				// Quit
+				case 1:
+					scr_close_game();
+					break;
+				// Main menu
+				case 2:
+					menu = 0;
+					current = 3;
+					break;
+			}
+		}
+		
 		break;
 }

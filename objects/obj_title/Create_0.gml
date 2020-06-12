@@ -20,3 +20,5 @@ menu = 0; // always begin on main menu
 
 // Set a variable to indicate the current menu option
 current = 0;
+current_pos_target = -1; // vertical coordinate of current option (negative if N/A)
+current_pos = -1; // vertical coordinate currently being drawn

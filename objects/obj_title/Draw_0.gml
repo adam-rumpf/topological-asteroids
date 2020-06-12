@@ -1,39 +1,48 @@
 /// @desc Draw text on title screen.
 
+// Move selector towards target
+if (current_pos_target >= 0)
+{
+	var diff = current_pos_target - current_pos; // difference in coordinates
+	var step = 0.1 * room_speed; // how far to move
+	
+	// If close enough (or if first), snap to correct position
+	if (abs(diff) <= step || current_pos < 0)
+		current_pos = current_pos_target;
+	// Otherwise step towards it
+	else
+	{
+		if (diff > 0)
+			current_pos += step;
+		if (diff < 0)
+			current_pos -= step;
+	}
+	
+	// Draw selector
+	draw_set_alpha(0.5);
+	draw_rectangle_color(0, current_pos-15, room_width, current_pos+15, c_gray, c_gray, c_gray, c_gray, false);
+	draw_set_alpha(1);
+}
+else
+	// Hide selector when nothing is selected
+	current_pos = -room_height;
+
 // Decide what to draw based on current menu screen
 //###
 var cw = c_white;
 draw_text_color(room_width - 120, 60, string(current), cw, cw, cw, cw, 1);//###
-var options = ["UNKNOWN"];
 switch menu
 {
 	// Main menu
 	case 0:
 		options = ["Start Game", "Options", "Credits", "Quit"];
 		break;
-		
-		//draw_set_halign(fa_center);
-		//### Temporary controls to go directly to rooms
-		/*draw_text_color(room_width/2, (room_height/2)-90, string_replace_all(program_directory, "\\", "\\\\"), cw, cw, cw, cw, 1);
-		draw_text_color(room_width/2, (room_height/2)-60, "Press [1] to go to the torus test room.", cw, cw, cw, cw, 1);
-		draw_text_color(room_width/2, (room_height/2)-30, "Press [2] to go to the Klein test room.", cw, cw, cw, cw, 1);
-		draw_text_color(room_width/2, (room_height/2)+0, "Press [3] to go to the sphere test room.", cw, cw, cw, cw, 1);
-		draw_text_color(room_width/2, (room_height/2)+30, "Press [4] to go to the RPP test room.", cw, cw, cw, cw, 1);
-		draw_text_color(room_width/2, (room_height/2)+60, "Press [5] to go to the cylinder test room.", cw, cw, cw, cw, 1);
-		draw_text_color(room_width/2, (room_height/2)+90, "Press [6] to go to the Mobius test room.", cw, cw, cw, cw, 1);
-		break;*/
 	
 	// Quit confirmation
 	case 4:
-		//### Temporary
-		// Set text font and define colors
-		draw_set_font(fnt_consolas);
-		var cw = c_white;
-		draw_set_halign(fa_center);
-		draw_text_color(room_width/2, room_height/2, "Press [Esc] again to quit.", cw, cw, cw, cw, 1);
-		draw_text_color(room_width/2, (room_height/2)+30, "Press [Enter] to return to main menu.", cw, cw, cw, cw, 1);
+		options = ["Are you sure you want to quit?", "Yes, quit.", "No, go back."];
 		break;
 }
 
 // Display the menu options
-scr_menu(options, current);
+current_pos_target = scr_menu(options, current);

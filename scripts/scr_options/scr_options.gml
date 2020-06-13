@@ -20,7 +20,7 @@ var options = ["Controls:",
 "[Esc] -- back out of menu option",
 " ",
 "Options:",
-"Sound volume: " + string(global.sound_volume),
+"Sound volume: " + string(10*global.sound_volume) + "%",
 "Reset high scores",
 "[back]"];
 

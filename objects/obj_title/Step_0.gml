@@ -103,6 +103,7 @@ switch menu
 		{
 			menu = 0;
 			current = 1;
+			scr_file_save();
 			exit;
 		}
 		
@@ -122,20 +123,37 @@ switch menu
 				current = 7;
 		}
 		
+		// Changing sound volume
+		if (current == 7)
+		{
+			// [Left] or [A] -- Decrease volume
+			if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A")))
+			{
+				if (global.sound_volume > 0)
+					global.sound_volume--;
+			}
+					
+			// [Right] or [D] -- Increase volume
+			if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D")))
+			{
+				if (global.sound_volume < 10)
+					global.sound_volume++;
+			}
+			
+			// Continuously play sample sounds
+			alarm[0] = 1.5 * room_speed;
+		}
+		
 		// [Enter] or [Space] -- Select current choice
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
 			switch current
 			{
-				// Volume bar
-				case 7: menu = 1; break;//###
 				// Clear scores
-				case 8: menu = 11; break;
+				case 8: menu = 11; current = 1; break;
 				// Go back
-				case 9: menu = 0;  break;
+				case 9: menu = 0; current = 1; scr_file_save(); break;
 			}
-			
-			current = 1;
 		}
 
 		break;
@@ -146,7 +164,7 @@ switch menu
 		if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
 			menu = 0;
-			current = 0;
+			current = 2;
 			exit;
 		}
 		

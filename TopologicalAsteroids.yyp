@@ -399,6 +399,14 @@
             }
         },
         {
+            "Key": "98eb73f1-5055-49c6-80ea-1a3380b311aa",
+            "Value": {
+                "id": "24a255ee-229b-4c67-912c-0e9539666b45",
+                "resourcePath": "scripts\\scr_clear_scores\\scr_clear_scores.yy",
+                "resourceType": "GMScript"
+            }
+        },
+        {
             "Key": "99e822d6-73d9-482c-a95a-93e68733bc42",
             "Value": {
                 "id": "6dcc38f8-9b52-45b1-a372-fffc59a18a1d",
@@ -623,6 +631,14 @@
             }
         },
         {
+            "Key": "e04232de-d4f4-448e-8023-4566671c6018",
+            "Value": {
+                "id": "e62f9797-7e0a-4336-9ad4-2b57e3feb716",
+                "resourcePath": "sprites\\spr_maze_grid\\spr_maze_grid.yy",
+                "resourceType": "GMSprite"
+            }
+        },
+        {
             "Key": "e94883c1-3098-4007-baf6-5fe564e7c68a",
             "Value": {
                 "id": "740fa58f-6dfa-4489-ac85-8408b9f76475",
@@ -685,6 +701,7 @@
         "1683615a-617f-4cc3-8714-3c5f61f3ade6",
         "33493efa-9882-42e6-abde-c4012b2a45af",
         "d6e852b5-9f99-4fc0-b762-715e5d14574f",
+        "98eb73f1-5055-49c6-80ea-1a3380b311aa",
         "0a258b98-69a5-46c2-8579-6f81dfe77547",
         "cd35f2dd-4827-4efe-b48d-3f774da09b65",
         "a781941b-4153-4ab6-ac3e-858c78979e59"

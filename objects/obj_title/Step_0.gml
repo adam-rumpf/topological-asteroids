@@ -74,7 +74,7 @@ switch menu
 				// Klein
 				case 2: menu = 6; break;
 				// Sphere
-				case 3: menu = 7; break;
+				case 3: menu = 7;  break;
 				// RPP
 				case 4: menu = 8; break;
 				// Cylinder
@@ -85,7 +85,7 @@ switch menu
 				case 7: menu = 0; break;
 			}
 			
-			current = 1;
+			current = 2;
 			if (menu == 0)
 				current = 0;
 		}
@@ -133,6 +133,234 @@ switch menu
 					menu = 0;
 					current = 3;
 					break;
+			}
+		}
+		
+		break;
+	
+	// Torus game mode
+	case 5:
+		var choices = 4;
+		
+		// [Esc] -- Go back
+		if (keyboard_check_pressed(vk_escape))
+		{
+			menu = 1;
+			current = 1;
+			exit;
+		}
+		
+		// [Up] or [W] -- Move selection up
+		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+			current = scr_mod(current-1, choices, 1);
+		
+		// [Down] or [S] -- Move selection down
+		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+			current = scr_mod(current+1, choices, 1);
+		
+		// [Enter] or [Space] -- Select current choice
+		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+		{
+			switch current
+			{
+				// Free play
+				case 1: global.difficulty = 0; room_goto(rm_torus); break;
+				// Normal
+				case 2: global.difficulty = 1; room_goto(rm_torus); break;
+				// Hard
+				case 3: global.difficulty = 2; room_goto(rm_torus); break;
+				// Go back
+				case 4: menu = 1; current = 1; break;
+			}
+		}
+		
+		break;
+	
+	// Klein game mode
+	case 6:
+		var choices = 4;
+		
+		// [Esc] -- Go back
+		if (keyboard_check_pressed(vk_escape))
+		{
+			menu = 1;
+			current = 2;
+			exit;
+		}
+		
+		// [Up] or [W] -- Move selection up
+		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+			current = scr_mod(current-1, choices, 1);
+		
+		// [Down] or [S] -- Move selection down
+		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+			current = scr_mod(current+1, choices, 1);
+		
+		// [Enter] or [Space] -- Select current choice
+		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+		{
+			switch current
+			{
+				// Free play
+				case 1: global.difficulty = 0; room_goto(rm_klein); break;
+				// Normal
+				case 2: global.difficulty = 1; room_goto(rm_klein); break;
+				// Hard
+				case 3: global.difficulty = 2; room_goto(rm_klein); break;
+				// Go back
+				case 4: menu = 1; current = 2; break;
+			}
+		}
+		
+		break;
+	
+	// Sphere game mode
+	case 7:
+		var choices = 4;
+		
+		// [Esc] -- Go back
+		if (keyboard_check_pressed(vk_escape))
+		{
+			menu = 1;
+			current = 3;
+			exit;
+		}
+		
+		// [Up] or [W] -- Move selection up
+		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+			current = scr_mod(current-1, choices, 1);
+		
+		// [Down] or [S] -- Move selection down
+		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+			current = scr_mod(current+1, choices, 1);
+		
+		// [Enter] or [Space] -- Select current choice
+		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+		{
+			switch current
+			{
+				// Free play
+				case 1: global.difficulty = 0; room_goto(rm_sphere); break;
+				// Normal
+				case 2: global.difficulty = 1; room_goto(rm_sphere); break;
+				// Hard
+				case 3: global.difficulty = 2; room_goto(rm_sphere); break;
+				// Go back
+				case 4: menu = 1; current = 3; break;
+			}
+		}
+		
+		break;
+	
+	// RPP game mode
+	case 8:
+		var choices = 4;
+		
+		// [Esc] -- Go back
+		if (keyboard_check_pressed(vk_escape))
+		{
+			menu = 1;
+			current = 4;
+			exit;
+		}
+		
+		// [Up] or [W] -- Move selection up
+		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+			current = scr_mod(current-1, choices, 1);
+		
+		// [Down] or [S] -- Move selection down
+		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+			current = scr_mod(current+1, choices, 1);
+		
+		// [Enter] or [Space] -- Select current choice
+		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+		{
+			switch current
+			{
+				// Free play
+				case 1: global.difficulty = 0; room_goto(rm_rpp); break;
+				// Normal
+				case 2: global.difficulty = 1; room_goto(rm_rpp); break;
+				// Hard
+				case 3: global.difficulty = 2; room_goto(rm_rpp); break;
+				// Go back
+				case 4: menu = 1; current = 4; break;
+			}
+		}
+		
+		break;
+	
+	// Cylinder game mode
+	case 9:
+		var choices = 4;
+		
+		// [Esc] -- Go back
+		if (keyboard_check_pressed(vk_escape))
+		{
+			menu = 1;
+			current = 5;
+			exit;
+		}
+		
+		// [Up] or [W] -- Move selection up
+		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+			current = scr_mod(current-1, choices, 1);
+		
+		// [Down] or [S] -- Move selection down
+		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+			current = scr_mod(current+1, choices, 1);
+		
+		// [Enter] or [Space] -- Select current choice
+		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+		{
+			switch current
+			{
+				// Free play
+				case 1: global.difficulty = 0; room_goto(rm_cylinder); break;
+				// Normal
+				case 2: global.difficulty = 1; room_goto(rm_cylinder); break;
+				// Hard
+				case 3: global.difficulty = 2; room_goto(rm_cylinder); break;
+				// Go back
+				case 4: menu = 1; current = 5; break;
+			}
+		}
+		
+		break;
+	
+	// Mobius game mode
+	case 10:
+		var choices = 4;
+		
+		// [Esc] -- Go back
+		if (keyboard_check_pressed(vk_escape))
+		{
+			menu = 1;
+			current = 6;
+			exit;
+		}
+		
+		// [Up] or [W] -- Move selection up
+		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+			current = scr_mod(current-1, choices, 1);
+		
+		// [Down] or [S] -- Move selection down
+		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+			current = scr_mod(current+1, choices, 1);
+		
+		// [Enter] or [Space] -- Select current choice
+		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+		{
+			switch current
+			{
+				// Free play
+				case 1: global.difficulty = 0; room_goto(rm_mobius); break;
+				// Normal
+				case 2: global.difficulty = 1; room_goto(rm_mobius); break;
+				// Hard
+				case 3: global.difficulty = 2; room_goto(rm_mobius); break;
+				// Go back
+				case 4: menu = 1; current = 6; break;
 			}
 		}
 		

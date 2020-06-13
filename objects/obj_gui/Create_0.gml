@@ -15,7 +15,7 @@ switch global.difficulty
 	
 	// Hard
 	case 2:
-		lives = 1;
+		lives = 3;
 		break;
 }
 
@@ -24,7 +24,7 @@ score = 0;
 
 // Figure out current room and difficulty
 rid = 0; // room ID
-did = global.difficulty - 1; // difficulty ID
+did = max(global.difficulty-1, 0); // difficulty ID
 switch room
 {
 	case rm_torus:
@@ -54,3 +54,8 @@ switch room
 
 // Get best score from list
 highest_score = global.high_scores[rid,did];
+
+// Set up camera tip
+camera_tip = 1.0;
+if (global.changed_camera == true)
+	camera_tip = 0;

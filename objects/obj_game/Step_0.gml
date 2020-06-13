@@ -12,8 +12,3 @@ if (keyboard_check_pressed(ord("C")))
 	if (room == rm_cylinder || room = rm_mobius)
 		global.camera = global.camera % 3;
 }
-
-//###
-// Testing [I] for invincibility
-if (keyboard_check_pressed(ord("I")))
-	global.difficulty = (global.difficulty+1) % 3;

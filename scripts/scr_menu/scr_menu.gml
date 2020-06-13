@@ -1,12 +1,14 @@
-/// @func scr_menu(options, current)
+/// @func scr_menu(options, current, offset)
 /// @desc Display a given list of menu options. Returns the vertical coordinate of the selected option.
 /// @param {string[]} options An array of strings to display as options.
 /// @param {int} current The array index of the current option.
+/// @param {int} offset Vertical offset of menu centering.
 
 // Rename arguments
-var options, current;
+var options, current, offset;
 options = argument[0];
 current = argument[1];
+offset = argument[2];
 
 // Set text font and define colors
 draw_set_font(fnt_consolas);
@@ -25,7 +27,7 @@ if (num == 0)
 for (var i = 0; i < num; i++)
 {
 	// Calculate vertical position
-	var pos = (room_height/2) - (15*(num-1)) + (30*i);
+	var pos = (room_height/2) - (15*(num-1)) + (30*i) + offset;
 	
 	// Default style
 	if (i != current)

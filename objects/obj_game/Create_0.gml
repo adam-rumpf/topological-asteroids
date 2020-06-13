@@ -10,6 +10,7 @@ global.warning_time = 2; // time between warning and asteroid spawning (sec)
 global.view_scale = 1; // scale for display size
 global.sound_volume = 5; // current volume of sound effects (read from settings.ini)
 global.alive = false; // whether the player is currently alive
+global.changed_camera = false; // whether the user has changed the camera this session
 
 // Define high score array (read from scores.sav)
 global.high_scores = 0;

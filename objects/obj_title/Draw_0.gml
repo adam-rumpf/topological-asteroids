@@ -19,7 +19,7 @@ if (current_pos_target >= 0)
 	}
 	
 	// Draw selector
-	draw_set_alpha(0.5);
+	draw_set_alpha(0.25);
 	draw_rectangle_color(0, current_pos-15, room_width, current_pos+15, c_gray, c_gray, c_gray, c_gray, false);
 	draw_set_alpha(1);
 }
@@ -41,7 +41,7 @@ switch menu
 	
 	// Game mode menu
 	case 1:
-		options = ["Choose a surface:", "Torus", "Klein Bottle", "Sphere", "Real Projective Plane", "Cylinder", "Mobius Strip", "[back]"];
+		options = ["Choose a surface:", "Torus", "Klein Bottle", "Sphere", "Real Projective Plane", "Cylinder", "Möbius Strip", "[back]"];
 		current_pos_target = scr_menu(options, current, 0);
 		break;
 	
@@ -64,7 +64,8 @@ switch menu
 	// Torus
 	case 5:
 		draw_text_color(room_width/2, 60, "Torus", cy, cy, cy, cy, 1);
-		draw_sprite_ext(spr_polyhedron_torus, 0, room_width/2, room_height/3, 2, 2, 5*cos(current_time*0.002), cw, 1);
+		draw_text_color(room_width/2, 90, "The default Asteroids experience.", cw, cw, cw, cw, 1);
+		draw_sprite_ext(spr_polyhedron_torus, 0, room_width/2, (room_height/3)+20, 2, 2, 5*cos(current_time*0.002), cw, 1);
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
 		current_pos_target = scr_menu(options, current, 120);
 		break;
@@ -72,7 +73,8 @@ switch menu
 	// Klein
 	case 6:
 		draw_text_color(room_width/2, 60, "Klein Bottle", cy, cy, cy, cy, 1);
-		draw_sprite_ext(spr_polyhedron_klein, 0, room_width/2, room_height/3, 2, 2, 5*cos(current_time*0.002), cw, 1);
+		draw_text_color(room_width/2, 90, "Half cylinder and half Möbius strip.", cw, cw, cw, cw, 1);
+		draw_sprite_ext(spr_polyhedron_klein, 0, room_width/2, (room_height/3)+20, 2, 2, 5*cos(current_time*0.002), cw, 1);
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
 		current_pos_target = scr_menu(options, current, 120);
 		break;
@@ -80,7 +82,8 @@ switch menu
 	// Sphere
 	case 7:
 		draw_text_color(room_width/2, 60, "Sphere", cy, cy, cy, cy, 1);
-		draw_sprite_ext(spr_polyhedron_sphere, 0, room_width/2, room_height/3, 2, 2, 5*cos(current_time*0.002), cw, 1);
+		draw_text_color(room_width/2, 90, "Rotation around the poles.", cw, cw, cw, cw, 1);
+		draw_sprite_ext(spr_polyhedron_sphere, 0, room_width/2, (room_height/3)+20, 2, 2, 5*cos(current_time*0.002), cw, 1);
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
 		current_pos_target = scr_menu(options, current, 120);
 		break;
@@ -88,7 +91,8 @@ switch menu
 	// RPP
 	case 8:
 		draw_text_color(room_width/2, 60, "Real Projective Plane", cy, cy, cy, cy, 1);
-		draw_sprite_ext(spr_polyhedron_rpp, 0, room_width/2, room_height/3, 2, 2, 5*cos(current_time*0.002), cw, 1);
+		draw_text_color(room_width/2, 90, "Wraps and mirrors in both directions.", cw, cw, cw, cw, 1);
+		draw_sprite_ext(spr_polyhedron_rpp, 0, room_width/2, (room_height/3)+20, 2, 2, 5*cos(current_time*0.002), cw, 1);
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
 		current_pos_target = scr_menu(options, current, 120);
 		break;
@@ -96,15 +100,17 @@ switch menu
 	// Cylinder
 	case 9:
 		draw_text_color(room_width/2, 60, "Cylinder", cy, cy, cy, cy, 1);
-		draw_sprite_ext(spr_polyhedron_cylinder, 0, room_width/2, room_height/3, 2, 2, 5*cos(current_time*0.002), cw, 1);
+		draw_text_color(room_width/2, 90, "Half the default Asteroids experience.", cw, cw, cw, cw, 1);
+		draw_sprite_ext(spr_polyhedron_cylinder, 0, room_width/2, (room_height/3)+20, 2, 2, 5*cos(current_time*0.002), cw, 1);
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
 		current_pos_target = scr_menu(options, current, 120);
 		break;
 	
 	// Mobius
 	case 10:
-		draw_text_color(room_width/2, 60, "Mobius Strip", cy, cy, cy, cy, 1);
-		draw_sprite_ext(spr_polyhedron_torus, 0, room_width/2, room_height/3, 2, 2, 5*cos(current_time*0.002), cw, 1);
+		draw_text_color(room_width/2, 60, "Möbius Strip", cy, cy, cy, cy, 1);
+		draw_text_color(room_width/2, 90, "A cylinder with a half twist.", cw, cw, cw, cw, 1);
+		draw_sprite_ext(spr_polyhedron_mobius, 0, room_width/2, (room_height/3)+20, 2, 2, 5*cos(current_time*0.002), cw, 1);
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
 		current_pos_target = scr_menu(options, current, 120);
 		break;

@@ -31,6 +31,7 @@ else
 //###
 var cw = c_white;
 var cy = c_yellow;
+var cr = c_red;
 draw_text_color(room_width - 120, 60, string(current), cw, cw, cw, cw, 1);//###
 switch menu
 {
@@ -46,9 +47,13 @@ switch menu
 		current_pos_target = scr_menu(options, current, 0);
 		break;
 	
+	// Options menu
+	case 2:
+		current_pos_target = scr_options(current);
+		break;
+	
 	// Credits
 	case 3:
-		options = ["back"];
 		current_pos_target = scr_credits();
 		break;
 	
@@ -105,4 +110,13 @@ switch menu
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
 		current_pos_target = scr_menu(options, current, 120);
 		break;
+	
+	// Score delete confirmation
+	case 11:
+		options = ["Delete saved high scores?", "[confirm]", "[back]"];
+		current_pos_target = scr_menu(options, current, 0);
+		break;
 }
+
+// Draw clear confirmation (disappears by itself over time)
+draw_text_color(room_width/2, 60, "Scores deleted.", cr, cr, cr, cr, clear_confirmation);

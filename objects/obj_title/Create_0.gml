@@ -10,7 +10,8 @@ Set state variable to indicate position in menu structure. Sate IDs include:
 	| +-+(8) Options for RPP
 	| +-+(9) Options for cylinder
 	| +-+(10) Options for Mobius
-	+-+(2) Options (sound settings, view controls)
+	+-+(2) Options (sound settings, delete scores, view controls)
+	| +-+(11) Score delete confirmation
 	+-+(3) Credits
 	+-+(4) Quit confirmation
 */
@@ -20,3 +21,6 @@ menu = 0; // always begin on main menu
 current = 0;
 current_pos_target = -1; // vertical coordinate of current option (negative if N/A)
 current_pos = -1; // vertical coordinate currently being drawn
+
+// Score cleared message
+clear_confirmation = 0.0;

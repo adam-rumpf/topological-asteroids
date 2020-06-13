@@ -40,6 +40,8 @@ switch menu
 			}
 			
 			current = 1;
+			if (menu == 2)
+				current = 7;
 		}
 		
 		break;
@@ -88,6 +90,52 @@ switch menu
 			current = 2;
 			if (menu == 0)
 				current = 0;
+		}
+
+		break;
+	
+	// Options menu
+	case 2:
+		var choices = 3;
+		
+		// [Esc] -- Go back
+		if (keyboard_check_pressed(vk_escape))
+		{
+			menu = 0;
+			current = 1;
+			exit;
+		}
+		
+		// [Up] or [W] -- Move selection up
+		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+		{
+			current--;
+			if (current < 7)
+				current = 9;
+		}
+		
+		// [Down] or [S] -- Move selection down
+		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+		{
+			current++;
+			if (current > 9)
+				current = 7;
+		}
+		
+		// [Enter] or [Space] -- Select current choice
+		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+		{
+			switch current
+			{
+				// Volume bar
+				case 7: menu = 1; break;//###
+				// Clear scores
+				case 8: menu = 11; break;
+				// Go back
+				case 9: menu = 0;  break;
+			}
+			
+			current = 1;
 		}
 
 		break;
@@ -365,4 +413,48 @@ switch menu
 		}
 		
 		break;
+	
+	// Quit confirmation
+	case 11:
+		// [Esc] -- Go back
+		if (keyboard_check_pressed(vk_escape))
+		{
+			menu = 2;
+			current = 8;
+			exit;
+		}
+		
+		// [Up] or [W] or [Down] or [S] -- Toggle selection
+		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")) || keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+		{
+			if (current >= 2)
+				current = 1;
+			else
+				current = 2;
+		}
+		
+		// [Enter] or [Space] -- Select current choice
+		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
+		{
+			switch current
+			{
+				// Delete
+				case 1:
+					scr_clear_scores();
+					clear_confirmation = 1.0;
+				// Options menu
+				case 2:
+					menu = 2;
+					current = 8;
+					break;
+			}
+		}
+		
+		break;
 }
+
+// Fade out clear confirmation
+if (clear_confirmation > 0)
+	clear_confirmation -= 0.01*(60/room_speed);
+if (clear_confirmation < 0)
+	clear_confirmation = 0;

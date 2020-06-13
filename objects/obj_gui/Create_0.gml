@@ -55,6 +55,9 @@ switch room
 // Get best score from list
 highest_score = global.high_scores[rid,did];
 
+// Reset camera
+global.camera = 0;
+
 // Set up camera tip
 camera_tip = 1.0;
 if (global.changed_camera == true)

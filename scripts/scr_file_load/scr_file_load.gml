@@ -10,6 +10,7 @@ if (file_exists(settings))
 {
 	ini_open(settings);
 	global.sound_volume = ini_read_real("option", "sound", 5);
+	audio_master_gain(global.sound_volume/10);
 	ini_close();
 }
 

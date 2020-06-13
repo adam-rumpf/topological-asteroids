@@ -1,7 +1,7 @@
 /// @desc Control actions on title screen.
 
 // Decide behavior based on menu state
-//###
+var sound = snd_tink;
 switch menu
 {
 	// Main menu
@@ -11,6 +11,7 @@ switch menu
 		// [Esc] -- Confirm quit
 		if (keyboard_check_pressed(vk_escape))
 		{
+			audio_play_sound(sound, 10, false);
 			menu = 4;
 			current = 1;
 			exit;
@@ -18,15 +19,23 @@ switch menu
 		
 		// [Up] or [W] -- Move selection up
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current-1, choices, 0);
+		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current+1, choices, 0);
+		}
 		
 		// [Enter] or [Space] -- Select current choice
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
+			audio_play_sound(sound, 10, false);
+			
 			switch current
 			{
 				// Start
@@ -41,7 +50,7 @@ switch menu
 			
 			current = 1;
 			if (menu == 2)
-				current = 7;
+				current = 8;
 		}
 		
 		break;
@@ -53,6 +62,7 @@ switch menu
 		// [Esc] -- Go back
 		if (keyboard_check_pressed(vk_escape))
 		{
+			audio_play_sound(sound, 10, false);
 			menu = 0;
 			current = 0;
 			exit;
@@ -60,15 +70,23 @@ switch menu
 		
 		// [Up] or [W] -- Move selection up
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current-1, choices, 1);
+		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current+1, choices, 1);
+		}
 		
 		// [Enter] or [Space] -- Select current choice
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
+			audio_play_sound(sound, 10, false);
+			
 			switch current
 			{
 				// Torus
@@ -101,6 +119,7 @@ switch menu
 		// [Esc] -- Go back
 		if (keyboard_check_pressed(vk_escape))
 		{
+			audio_play_sound(sound, 10, false);
 			menu = 0;
 			current = 1;
 			scr_file_save();
@@ -110,49 +129,64 @@ switch menu
 		// [Up] or [W] -- Move selection up
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
 		{
+			audio_play_sound(sound, 10, false);
 			current--;
-			if (current < 7)
-				current = 9;
+			if (current < 8)
+				current = 10;
 		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
+			audio_play_sound(sound, 10, false);
 			current++;
-			if (current > 9)
-				current = 7;
+			if (current > 10)
+				current = 8;
 		}
 		
 		// Changing sound volume
-		if (current == 7)
+		if (current == 8)
 		{
 			// [Left] or [A] -- Decrease volume
 			if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A")))
 			{
+				audio_play_sound(sound, 10, false);
+				
 				if (global.sound_volume > 0)
+				{
 					global.sound_volume--;
+					audio_master_gain(global.sound_volume/10);
+				}
 			}
 					
 			// [Right] or [D] -- Increase volume
 			if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(ord("D")))
 			{
+				audio_play_sound(sound, 10, false);
+				
 				if (global.sound_volume < 10)
+				{
 					global.sound_volume++;
+					audio_master_gain(global.sound_volume/10);
+				}
 			}
 			
 			// Continuously play sample sounds
-			alarm[0] = 1.5 * room_speed;
+			if (alarm[0] <= 0)
+				alarm[0] = 0.75 * room_speed;
 		}
 		
 		// [Enter] or [Space] -- Select current choice
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
+			audio_play_sound(sound, 10, false);
+			
 			switch current
 			{
 				// Clear scores
-				case 8: menu = 11; current = 1; break;
+				case 9: menu = 11; current = 1; break;
 				// Go back
-				case 9: menu = 0; current = 1; scr_file_save(); break;
+				case 10: menu = 0; current = 1; scr_file_save(); break;
 			}
 		}
 
@@ -163,6 +197,7 @@ switch menu
 		// [Esc], [Space], or [Enter] -- Go back
 		if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
+			audio_play_sound(sound, 10, false);
 			menu = 0;
 			current = 2;
 			exit;
@@ -174,11 +209,15 @@ switch menu
 	case 4:
 		// [Esc] -- Quit
 		if (keyboard_check_pressed(vk_escape))
+		{
+			audio_play_sound(sound, 10, false);
 			scr_close_game();
+		}
 		
 		// [Up] or [W] or [Down] or [S] -- Toggle selection
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")) || keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
+			audio_play_sound(sound, 10, false);
 			if (current >= 2)
 				current = 1;
 			else
@@ -188,6 +227,8 @@ switch menu
 		// [Enter] or [Space] -- Select current choice
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
+			audio_play_sound(sound, 10, false);
+			
 			switch current
 			{
 				// Quit
@@ -211,6 +252,7 @@ switch menu
 		// [Esc] -- Go back
 		if (keyboard_check_pressed(vk_escape))
 		{
+			audio_play_sound(sound, 10, false);
 			menu = 1;
 			current = 1;
 			exit;
@@ -218,15 +260,23 @@ switch menu
 		
 		// [Up] or [W] -- Move selection up
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current-1, choices, 1);
+		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current+1, choices, 1);
+		}
 		
 		// [Enter] or [Space] -- Select current choice
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
+			audio_play_sound(sound, 10, false);
+			
 			switch current
 			{
 				// Free play
@@ -249,6 +299,7 @@ switch menu
 		// [Esc] -- Go back
 		if (keyboard_check_pressed(vk_escape))
 		{
+			audio_play_sound(sound, 10, false);
 			menu = 1;
 			current = 2;
 			exit;
@@ -256,15 +307,23 @@ switch menu
 		
 		// [Up] or [W] -- Move selection up
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current-1, choices, 1);
+		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current+1, choices, 1);
+		}
 		
 		// [Enter] or [Space] -- Select current choice
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
+			audio_play_sound(sound, 10, false);
+			
 			switch current
 			{
 				// Free play
@@ -287,6 +346,7 @@ switch menu
 		// [Esc] -- Go back
 		if (keyboard_check_pressed(vk_escape))
 		{
+			audio_play_sound(sound, 10, false);
 			menu = 1;
 			current = 3;
 			exit;
@@ -294,15 +354,23 @@ switch menu
 		
 		// [Up] or [W] -- Move selection up
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current-1, choices, 1);
+		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current+1, choices, 1);
+		}
 		
 		// [Enter] or [Space] -- Select current choice
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
+			audio_play_sound(sound, 10, false);
+			
 			switch current
 			{
 				// Free play
@@ -325,6 +393,7 @@ switch menu
 		// [Esc] -- Go back
 		if (keyboard_check_pressed(vk_escape))
 		{
+			audio_play_sound(sound, 10, false);
 			menu = 1;
 			current = 4;
 			exit;
@@ -332,15 +401,23 @@ switch menu
 		
 		// [Up] or [W] -- Move selection up
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current-1, choices, 1);
+		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current+1, choices, 1);
+		}
 		
 		// [Enter] or [Space] -- Select current choice
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
+			audio_play_sound(sound, 10, false);
+			
 			switch current
 			{
 				// Free play
@@ -363,6 +440,7 @@ switch menu
 		// [Esc] -- Go back
 		if (keyboard_check_pressed(vk_escape))
 		{
+			audio_play_sound(sound, 10, false);
 			menu = 1;
 			current = 5;
 			exit;
@@ -370,15 +448,23 @@ switch menu
 		
 		// [Up] or [W] -- Move selection up
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current-1, choices, 1);
+		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current+1, choices, 1);
+		}
 		
 		// [Enter] or [Space] -- Select current choice
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
+			audio_play_sound(sound, 10, false);
+			
 			switch current
 			{
 				// Free play
@@ -401,6 +487,7 @@ switch menu
 		// [Esc] -- Go back
 		if (keyboard_check_pressed(vk_escape))
 		{
+			audio_play_sound(sound, 10, false);
 			menu = 1;
 			current = 6;
 			exit;
@@ -408,15 +495,23 @@ switch menu
 		
 		// [Up] or [W] -- Move selection up
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current-1, choices, 1);
+		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
+		{
+			audio_play_sound(sound, 10, false);
 			current = scr_mod(current+1, choices, 1);
+		}
 		
 		// [Enter] or [Space] -- Select current choice
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
+			audio_play_sound(sound, 10, false);
+			
 			switch current
 			{
 				// Free play
@@ -437,6 +532,7 @@ switch menu
 		// [Esc] -- Go back
 		if (keyboard_check_pressed(vk_escape))
 		{
+			audio_play_sound(sound, 10, false);
 			menu = 2;
 			current = 8;
 			exit;
@@ -445,6 +541,7 @@ switch menu
 		// [Up] or [W] or [Down] or [S] -- Toggle selection
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")) || keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
+			audio_play_sound(sound, 10, false);
 			if (current >= 2)
 				current = 1;
 			else
@@ -454,6 +551,8 @@ switch menu
 		// [Enter] or [Space] -- Select current choice
 		if (keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
+			audio_play_sound(sound, 10, false);
+			
 			switch current
 			{
 				// Delete

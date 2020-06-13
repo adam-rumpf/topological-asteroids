@@ -16,6 +16,7 @@ var cy = c_yellow;
 var options = ["Controls:",
 "[Arrows]/[WASD] -- move, navigate menus",
 "[Space]/[Enter] -- shoot, accept menu option",
+"[C] -- change camera mode",
 "[Esc]/[P] -- pause",
 "[Esc] -- back out of menu option",
 " ",
@@ -44,7 +45,7 @@ for (var i = 0; i < num; i++)
 		draw_text_color(room_width/2, pos, options[i], cy, cy, cy, cy, 1);
 		
 		// If the sound option is selected, draw arrows
-		if (i == 7)
+		if (i == 8)
 		{
 			draw_sprite_ext(spr_arrow, 0, (room_width/2) - 120 - 5*cos(current_time*0.01), pos, 1, 1, 180, c_white, 1);
 			draw_sprite_ext(spr_arrow, 0, (room_width/2) + 120 + 5*cos(current_time*0.01), pos, 1, 1, 0, c_white, 1);

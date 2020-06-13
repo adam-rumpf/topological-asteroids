@@ -11,8 +11,6 @@ switch global.camera
 	// Follow ship
 	case 1:
 		// Update coordinates
-		//### We need to snap when we get more than 1/2 a cell width away from the main cell, otherwise objects may disappear off of the edge.
-		//### Possibly just increment/decrement the x- or y-coordinate by 2 room widths whenever the target's coordinates leave that box.
 		if (instance_exists(camera_target))
 		{
 			camera_x = camera_target.x - global.cell_size/2;

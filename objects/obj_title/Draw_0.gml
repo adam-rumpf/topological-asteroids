@@ -28,11 +28,9 @@ else
 	current_pos = -room_height;
 
 // Decide what to draw based on current menu screen
-//###
 var cw = c_white;
 var cy = c_yellow;
 var cr = c_red;
-draw_text_color(room_width - 120, 60, string(current), cw, cw, cw, cw, 1);//###
 switch menu
 {
 	// Main menu

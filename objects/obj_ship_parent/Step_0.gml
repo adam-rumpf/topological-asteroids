@@ -3,6 +3,9 @@
 // [Space] or [Enter] press -- fire a bullet (accounting for fire delay)
 if ((keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)) && can_shoot)
 {
+	// Play sound
+	audio_play_sound(snd_pew, 10, false);
+	
 	// Relative to base ship
 	with (base)
 	{
@@ -31,17 +34,26 @@ if ((keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter)) && ca
 	alarm[0] = cooldown;
 }
 
+// [Up] or [W] pressed -- start looping thruster sound
+if ((keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W"))) && audio_is_playing(snd_static) == false && dead == false)
+	audio_play_sound(snd_static, 0, true);
+
+// [Up] or [W] released -- stop looping thruster sound
+if ((keyboard_check_released(vk_up) || keyboard_check_released(ord("W")) || dead == true) && audio_is_playing(snd_static) == true)
+	audio_stop_sound(snd_static);
+
 // Destroy all children if one has signified its own death
 if (dead == true)
 {
+	// Play explosion sound
+	audio_play_sound(snd_boom, 20, false);
+	
 	// Decrease life count
 	lives -= 1;
 	
 	// Set global and local death variables
 	global.alive = false;
 	dead = false;
-	
-	//### We would also play a single destruction sound at this time.
 	
 	// Loop through all children to destroy them
 	if (room = rm_cylinder || room = rm_mobius)

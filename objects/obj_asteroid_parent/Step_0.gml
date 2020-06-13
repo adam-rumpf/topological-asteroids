@@ -3,11 +3,15 @@
 // Destroy all children if one has signified its own death
 if (dead == true)
 {
-	//### We would also play a single destruction sound at this time.
+	// Play a small explosion sound, pitch-adjusted according to size
+	var sound = audio_play_sound(snd_pow, 8, false);
 	
 	// Large asteroids break into two medium asteroids
 	if (size == 2)
 	{
+		// Lower sound pitch
+		audio_sound_pitch(sound, 0.75);
+		
 		repeat (2)
 		{
 			// Create a new non-spawning parent to store the new child
@@ -50,6 +54,10 @@ if (dead == true)
 			parent.size = 0;
 		}
 	}
+	
+	// Small asteroids use a higher pitch
+	if (size == 0)
+		audio_sound_pitch(sound, 1.25);
 	
 	// Loop through all children to destroy them
 	if (room = rm_cylinder || room = rm_mobius)

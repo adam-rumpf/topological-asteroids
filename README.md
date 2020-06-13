@@ -10,6 +10,7 @@ This version of the game can be played on a variety of other topological surface
 
 [Arrows]/[WASD] -- move, navigate menus  
 [Space]/[Enter] -- shoot, accept menu option  
+[C] -- change camera mode  
 [Esc]/[P] -- pause  
 [Esc] -- back out of menu option
 

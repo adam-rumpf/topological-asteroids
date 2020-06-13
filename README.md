@@ -2,7 +2,7 @@
 
 An _Asteroids_-esque game for different topological surfaces (in addition to the usual torus).
 
-<iframe src="https://itch.io/embed/667059" width="208" height="167" frameborder="0"><a href="https://adam-rumpf.itch.io/topological-asteroids">Topological Asteroids by Adam Rumpf</a></iframe>
+For downloads, please see this game's [itch.io page](https://adam-rumpf.itch.io/topological-asteroids).
 
 This is a game based on the classic arcade game [_Asteroids_](https://en.wikipedia.org/wiki/Asteroids_(video_game)). The player controls a ship and attempts to avoid crashing into asteroids both by maneuvering around them and blasting them into smaller pieces. This game is of mathematical interest because it takes place on a [torus](https://en.wikipedia.org/wiki/Torus), meaning that objects that leave one edge "wrap around" to the opposite edge.
 

@@ -2,7 +2,7 @@
 
 // Decide behavior based on menu state
 var sound = snd_tink;
-switch menu
+switch global.menu
 {
 	// Main menu
 	case 0:
@@ -12,8 +12,8 @@ switch menu
 		if (keyboard_check_pressed(vk_escape))
 		{
 			audio_play_sound(sound, 10, false);
-			menu = 4;
-			current = 1;
+			global.menu = 4;
+			global.menu_current = 1;
 			exit;
 		}
 		
@@ -21,14 +21,14 @@ switch menu
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current-1, choices, 0);
+			global.menu_current = scr_mod(global.menu_current-1, choices, 0);
 		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current+1, choices, 0);
+			global.menu_current = scr_mod(global.menu_current+1, choices, 0);
 		}
 		
 		// [Enter] or [Space] -- Select current choice
@@ -36,21 +36,21 @@ switch menu
 		{
 			audio_play_sound(sound, 10, false);
 			
-			switch current
+			switch global.menu_current
 			{
 				// Start
-				case 0: menu = 1; break;
+				case 0: global.menu = 1; break;
 				// Options
-				case 1: menu = 2; break;
+				case 1: global.menu = 2; break;
 				// Credits
-				case 2: menu = 3; break;
+				case 2: global.menu = 3; break;
 				// Quit
-				case 3: menu = 4; break;
+				case 3: global.menu = 4; break;
 			}
 			
-			current = 1;
-			if (menu == 2)
-				current = 8;
+			global.menu_current = 1;
+			if (global.menu == 2)
+				global.menu_current = 8;
 		}
 		
 		break;
@@ -63,8 +63,8 @@ switch menu
 		if (keyboard_check_pressed(vk_escape))
 		{
 			audio_play_sound(sound, 10, false);
-			menu = 0;
-			current = 0;
+			global.menu = 0;
+			global.menu_current = 0;
 			exit;
 		}
 		
@@ -72,14 +72,14 @@ switch menu
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current-1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current-1, choices, 1);
 		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current+1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current+1, choices, 1);
 		}
 		
 		// [Enter] or [Space] -- Select current choice
@@ -87,27 +87,27 @@ switch menu
 		{
 			audio_play_sound(sound, 10, false);
 			
-			switch current
+			switch global.menu_current
 			{
 				// Torus
-				case 1: menu = 5; break;
+				case 1: global.menu = 5; break;
 				// Klein
-				case 2: menu = 6; break;
+				case 2: global.menu = 6; break;
 				// Sphere
-				case 3: menu = 7;  break;
+				case 3: global.menu = 7;  break;
 				// RPP
-				case 4: menu = 8; break;
+				case 4: global.menu = 8; break;
 				// Cylinder
-				case 5: menu = 9; break;
+				case 5: global.menu = 9; break;
 				// Mobius
-				case 6: menu = 10; break;
+				case 6: global.menu = 10; break;
 				// Go back
-				case 7: menu = 0; break;
+				case 7: global.menu = 0; break;
 			}
 			
-			current = 2;
-			if (menu == 0)
-				current = 0;
+			global.menu_current = 2;
+			if (global.menu == 0)
+				global.menu_current = 0;
 		}
 
 		break;
@@ -120,8 +120,8 @@ switch menu
 		if (keyboard_check_pressed(vk_escape))
 		{
 			audio_play_sound(sound, 10, false);
-			menu = 0;
-			current = 1;
+			global.menu = 0;
+			global.menu_current = 1;
 			scr_file_save();
 			exit;
 		}
@@ -130,22 +130,22 @@ switch menu
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
 		{
 			audio_play_sound(sound, 10, false);
-			current--;
-			if (current < 8)
-				current = 10;
+			global.menu_current--;
+			if (global.menu_current < 8)
+				global.menu_current = 10;
 		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
 			audio_play_sound(sound, 10, false);
-			current++;
-			if (current > 10)
-				current = 8;
+			global.menu_current++;
+			if (global.menu_current > 10)
+				global.menu_current = 8;
 		}
 		
 		// Changing sound volume
-		if (current == 8)
+		if (global.menu_current == 8)
 		{
 			// [Left] or [A] -- Decrease volume
 			if (keyboard_check_pressed(vk_left) || keyboard_check_pressed(ord("A")))
@@ -181,12 +181,12 @@ switch menu
 		{
 			audio_play_sound(sound, 10, false);
 			
-			switch current
+			switch global.menu_current
 			{
 				// Clear scores
-				case 9: menu = 11; current = 1; break;
+				case 9: global.menu = 11; global.menu_current = 1; break;
 				// Go back
-				case 10: menu = 0; current = 1; scr_file_save(); break;
+				case 10: global.menu = 0; global.menu_current = 1; scr_file_save(); break;
 			}
 		}
 
@@ -198,8 +198,8 @@ switch menu
 		if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_space) || keyboard_check_pressed(vk_enter))
 		{
 			audio_play_sound(sound, 10, false);
-			menu = 0;
-			current = 2;
+			global.menu = 0;
+			global.menu_current = 2;
 			exit;
 		}
 		
@@ -218,10 +218,10 @@ switch menu
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")) || keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
 			audio_play_sound(sound, 10, false);
-			if (current >= 2)
-				current = 1;
+			if (global.menu_current >= 2)
+				global.menu_current = 1;
 			else
-				current = 2;
+				global.menu_current = 2;
 		}
 		
 		// [Enter] or [Space] -- Select current choice
@@ -229,7 +229,7 @@ switch menu
 		{
 			audio_play_sound(sound, 10, false);
 			
-			switch current
+			switch global.menu_current
 			{
 				// Quit
 				case 1:
@@ -237,8 +237,8 @@ switch menu
 					break;
 				// Main menu
 				case 2:
-					menu = 0;
-					current = 3;
+					global.menu = 0;
+					global.menu_current = 3;
 					break;
 			}
 		}
@@ -253,8 +253,8 @@ switch menu
 		if (keyboard_check_pressed(vk_escape))
 		{
 			audio_play_sound(sound, 10, false);
-			menu = 1;
-			current = 1;
+			global.menu = 1;
+			global.menu_current = 1;
 			exit;
 		}
 		
@@ -262,14 +262,14 @@ switch menu
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current-1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current-1, choices, 1);
 		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current+1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current+1, choices, 1);
 		}
 		
 		// [Enter] or [Space] -- Select current choice
@@ -277,7 +277,7 @@ switch menu
 		{
 			audio_play_sound(sound, 10, false);
 			
-			switch current
+			switch global.menu_current
 			{
 				// Free play
 				case 1: global.difficulty = 0; room_goto(rm_torus); break;
@@ -286,7 +286,7 @@ switch menu
 				// Hard
 				case 3: global.difficulty = 2; room_goto(rm_torus); break;
 				// Go back
-				case 4: menu = 1; current = 1; break;
+				case 4: global.menu = 1; global.menu_current = 1; break;
 			}
 		}
 		
@@ -300,8 +300,8 @@ switch menu
 		if (keyboard_check_pressed(vk_escape))
 		{
 			audio_play_sound(sound, 10, false);
-			menu = 1;
-			current = 2;
+			global.menu = 1;
+			global.menu_current = 2;
 			exit;
 		}
 		
@@ -309,14 +309,14 @@ switch menu
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current-1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current-1, choices, 1);
 		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current+1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current+1, choices, 1);
 		}
 		
 		// [Enter] or [Space] -- Select current choice
@@ -324,7 +324,7 @@ switch menu
 		{
 			audio_play_sound(sound, 10, false);
 			
-			switch current
+			switch global.menu_current
 			{
 				// Free play
 				case 1: global.difficulty = 0; room_goto(rm_klein); break;
@@ -333,7 +333,7 @@ switch menu
 				// Hard
 				case 3: global.difficulty = 2; room_goto(rm_klein); break;
 				// Go back
-				case 4: menu = 1; current = 2; break;
+				case 4: global.menu = 1; global.menu_current = 2; break;
 			}
 		}
 		
@@ -347,8 +347,8 @@ switch menu
 		if (keyboard_check_pressed(vk_escape))
 		{
 			audio_play_sound(sound, 10, false);
-			menu = 1;
-			current = 3;
+			global.menu = 1;
+			global.menu_current = 3;
 			exit;
 		}
 		
@@ -356,14 +356,14 @@ switch menu
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current-1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current-1, choices, 1);
 		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current+1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current+1, choices, 1);
 		}
 		
 		// [Enter] or [Space] -- Select current choice
@@ -371,7 +371,7 @@ switch menu
 		{
 			audio_play_sound(sound, 10, false);
 			
-			switch current
+			switch global.menu_current
 			{
 				// Free play
 				case 1: global.difficulty = 0; room_goto(rm_sphere); break;
@@ -380,7 +380,7 @@ switch menu
 				// Hard
 				case 3: global.difficulty = 2; room_goto(rm_sphere); break;
 				// Go back
-				case 4: menu = 1; current = 3; break;
+				case 4: global.menu = 1; global.menu_current = 3; break;
 			}
 		}
 		
@@ -394,8 +394,8 @@ switch menu
 		if (keyboard_check_pressed(vk_escape))
 		{
 			audio_play_sound(sound, 10, false);
-			menu = 1;
-			current = 4;
+			global.menu = 1;
+			global.menu_current = 4;
 			exit;
 		}
 		
@@ -403,14 +403,14 @@ switch menu
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current-1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current-1, choices, 1);
 		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current+1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current+1, choices, 1);
 		}
 		
 		// [Enter] or [Space] -- Select current choice
@@ -418,7 +418,7 @@ switch menu
 		{
 			audio_play_sound(sound, 10, false);
 			
-			switch current
+			switch global.menu_current
 			{
 				// Free play
 				case 1: global.difficulty = 0; room_goto(rm_rpp); break;
@@ -427,7 +427,7 @@ switch menu
 				// Hard
 				case 3: global.difficulty = 2; room_goto(rm_rpp); break;
 				// Go back
-				case 4: menu = 1; current = 4; break;
+				case 4: global.menu = 1; global.menu_current = 4; break;
 			}
 		}
 		
@@ -441,8 +441,8 @@ switch menu
 		if (keyboard_check_pressed(vk_escape))
 		{
 			audio_play_sound(sound, 10, false);
-			menu = 1;
-			current = 5;
+			global.menu = 1;
+			global.menu_current = 5;
 			exit;
 		}
 		
@@ -450,14 +450,14 @@ switch menu
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current-1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current-1, choices, 1);
 		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current+1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current+1, choices, 1);
 		}
 		
 		// [Enter] or [Space] -- Select current choice
@@ -465,7 +465,7 @@ switch menu
 		{
 			audio_play_sound(sound, 10, false);
 			
-			switch current
+			switch global.menu_current
 			{
 				// Free play
 				case 1: global.difficulty = 0; room_goto(rm_cylinder); break;
@@ -474,7 +474,7 @@ switch menu
 				// Hard
 				case 3: global.difficulty = 2; room_goto(rm_cylinder); break;
 				// Go back
-				case 4: menu = 1; current = 5; break;
+				case 4: global.menu = 1; global.menu_current = 5; break;
 			}
 		}
 		
@@ -488,8 +488,8 @@ switch menu
 		if (keyboard_check_pressed(vk_escape))
 		{
 			audio_play_sound(sound, 10, false);
-			menu = 1;
-			current = 6;
+			global.menu = 1;
+			global.menu_current = 6;
 			exit;
 		}
 		
@@ -497,14 +497,14 @@ switch menu
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current-1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current-1, choices, 1);
 		}
 		
 		// [Down] or [S] -- Move selection down
 		if (keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
 			audio_play_sound(sound, 10, false);
-			current = scr_mod(current+1, choices, 1);
+			global.menu_current = scr_mod(global.menu_current+1, choices, 1);
 		}
 		
 		// [Enter] or [Space] -- Select current choice
@@ -512,7 +512,7 @@ switch menu
 		{
 			audio_play_sound(sound, 10, false);
 			
-			switch current
+			switch global.menu_current
 			{
 				// Free play
 				case 1: global.difficulty = 0; room_goto(rm_mobius); break;
@@ -521,7 +521,7 @@ switch menu
 				// Hard
 				case 3: global.difficulty = 2; room_goto(rm_mobius); break;
 				// Go back
-				case 4: menu = 1; current = 6; break;
+				case 4: global.menu = 1; global.menu_current = 6; break;
 			}
 		}
 		
@@ -533,8 +533,8 @@ switch menu
 		if (keyboard_check_pressed(vk_escape))
 		{
 			audio_play_sound(sound, 10, false);
-			menu = 2;
-			current = 8;
+			global.menu = 2;
+			global.menu_current = 8;
 			exit;
 		}
 		
@@ -542,10 +542,10 @@ switch menu
 		if (keyboard_check_pressed(vk_up) || keyboard_check_pressed(ord("W")) || keyboard_check_pressed(vk_down) || keyboard_check_pressed(ord("S")))
 		{
 			audio_play_sound(sound, 10, false);
-			if (current >= 2)
-				current = 1;
+			if (global.menu_current >= 2)
+				global.menu_current = 1;
 			else
-				current = 2;
+				global.menu_current = 2;
 		}
 		
 		// [Enter] or [Space] -- Select current choice
@@ -553,7 +553,7 @@ switch menu
 		{
 			audio_play_sound(sound, 10, false);
 			
-			switch current
+			switch global.menu_current
 			{
 				// Delete
 				case 1:
@@ -561,8 +561,8 @@ switch menu
 					clear_confirmation = 1.0;
 				// Options menu
 				case 2:
-					menu = 2;
-					current = 8;
+					global.menu = 2;
+					global.menu_current = 8;
 					break;
 			}
 		}

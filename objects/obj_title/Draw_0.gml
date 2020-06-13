@@ -31,23 +31,23 @@ else
 var cw = c_white;
 var cy = c_yellow;
 var cr = c_red;
-switch menu
+switch global.menu
 {
 	// Main menu
 	case 0:
 		options = ["Start Game", "Options", "Credits", "Quit"];
-		current_pos_target = scr_menu(options, current, 0);
+		current_pos_target = scr_menu(options, global.menu_current, 0);
 		break;
 	
 	// Game mode menu
 	case 1:
 		options = ["Choose a surface:", "Torus", "Klein Bottle", "Sphere", "Real Projective Plane", "Cylinder", "Möbius Strip", "[back]"];
-		current_pos_target = scr_menu(options, current, 0);
+		current_pos_target = scr_menu(options, global.menu_current, 0);
 		break;
 	
 	// Options menu
 	case 2:
-		current_pos_target = scr_options(current);
+		current_pos_target = scr_options(global.menu_current);
 		break;
 	
 	// Credits
@@ -58,7 +58,7 @@ switch menu
 	// Quit confirmation
 	case 4:
 		options = ["Are you sure you want to quit?", "[quit]", "[back]"];
-		current_pos_target = scr_menu(options, current, 0);
+		current_pos_target = scr_menu(options, global.menu_current, 0);
 		break;
 	
 	// Torus
@@ -67,7 +67,7 @@ switch menu
 		draw_text_color(room_width/2, 90, "The default Asteroids experience.", cw, cw, cw, cw, 1);
 		draw_sprite_ext(spr_polyhedron_torus, 0, room_width/2, (room_height/3)+20, 2, 2, 5*cos(current_time*0.002), cw, 1);
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
-		current_pos_target = scr_menu(options, current, 120);
+		current_pos_target = scr_menu(options, global.menu_current, 120);
 		break;
 	
 	// Klein
@@ -76,7 +76,7 @@ switch menu
 		draw_text_color(room_width/2, 90, "Half cylinder and half Möbius strip.", cw, cw, cw, cw, 1);
 		draw_sprite_ext(spr_polyhedron_klein, 0, room_width/2, (room_height/3)+20, 2, 2, 5*cos(current_time*0.002), cw, 1);
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
-		current_pos_target = scr_menu(options, current, 120);
+		current_pos_target = scr_menu(options, global.menu_current, 120);
 		break;
 	
 	// Sphere
@@ -85,7 +85,7 @@ switch menu
 		draw_text_color(room_width/2, 90, "Rotation around the poles.", cw, cw, cw, cw, 1);
 		draw_sprite_ext(spr_polyhedron_sphere, 0, room_width/2, (room_height/3)+20, 2, 2, 5*cos(current_time*0.002), cw, 1);
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
-		current_pos_target = scr_menu(options, current, 120);
+		current_pos_target = scr_menu(options, global.menu_current, 120);
 		break;
 	
 	// RPP
@@ -94,7 +94,7 @@ switch menu
 		draw_text_color(room_width/2, 90, "Wraps and mirrors in both directions.", cw, cw, cw, cw, 1);
 		draw_sprite_ext(spr_polyhedron_rpp, 0, room_width/2, (room_height/3)+20, 2, 2, 5*cos(current_time*0.002), cw, 1);
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
-		current_pos_target = scr_menu(options, current, 120);
+		current_pos_target = scr_menu(options, global.menu_current, 120);
 		break;
 	
 	// Cylinder
@@ -103,7 +103,7 @@ switch menu
 		draw_text_color(room_width/2, 90, "Half the default Asteroids experience.", cw, cw, cw, cw, 1);
 		draw_sprite_ext(spr_polyhedron_cylinder, 0, room_width/2, (room_height/3)+20, 2, 2, 5*cos(current_time*0.002), cw, 1);
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
-		current_pos_target = scr_menu(options, current, 120);
+		current_pos_target = scr_menu(options, global.menu_current, 120);
 		break;
 	
 	// Mobius
@@ -112,13 +112,13 @@ switch menu
 		draw_text_color(room_width/2, 90, "A cylinder with a half twist.", cw, cw, cw, cw, 1);
 		draw_sprite_ext(spr_polyhedron_mobius, 0, room_width/2, (room_height/3)+20, 2, 2, 5*cos(current_time*0.002), cw, 1);
 		options = ["Select difficulty:", "Free Play", "Normal", "Hard", "[back]"];
-		current_pos_target = scr_menu(options, current, 120);
+		current_pos_target = scr_menu(options, global.menu_current, 120);
 		break;
 	
 	// Score delete confirmation
 	case 11:
 		options = ["Delete saved high scores?", "[confirm]", "[back]"];
-		current_pos_target = scr_menu(options, current, 0);
+		current_pos_target = scr_menu(options, global.menu_current, 0);
 		break;
 }
 

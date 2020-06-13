@@ -49,6 +49,24 @@ Set difficulty level. Difficulty IDs include:
 */
 global.difficulty = 1;
 
+/*
+Set state variable to indicate position in menu structure. Sate IDs include:
+	+(0) Default main menu
+	+-+(1) Play (present options for all game rooms)
+	| +-+(5) Options for torus (difficulty, option to back out)
+	| +-+(6) Options for Klein
+	| +-+(7) Options for sphere
+	| +-+(8) Options for RPP
+	| +-+(9) Options for cylinder
+	| +-+(10) Options for Mobius
+	+-+(2) Options (sound settings, delete scores, view controls)
+	| +-+(11) Score delete confirmation
+	+-+(3) Credits
+	+-+(4) Quit confirmation
+*/
+global.menu = 0; // menu screen
+global.menu_current = 0; // current menu option
+
 // Variables for a pause screen
 paused = false;
 pause_screen = -1; // ID of pause screen surface to draw to

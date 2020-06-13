@@ -1,5 +1,9 @@
 /// @desc Set global symmetry value based on room.
 
+// Set default states
+global.camera = 0;
+paused = false;
+
 // Set symmetry value
 switch room
 {

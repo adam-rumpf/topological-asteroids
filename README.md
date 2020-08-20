@@ -22,7 +22,7 @@ Topological Asteroids
 Copyright (c) 2020 Adam Rumpf  
 [adam-rumpf.github.io](https://adam-rumpf.github.io/)
 
-Made in GameMaker Studio 2  
+Made in GameMaker Studio 2 (Version 2.2.5)  
 2017 YoYo Games Ltd
 
 Source code released under MIT License  
